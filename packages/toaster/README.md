@@ -10,7 +10,6 @@ Toaster is a lightweight, dependency-free JavaScript library for creating toast 
 
 With sensible defaults for quick setup, you can configure Toaster to match your project’s requirements using a combination of options, custom classes, and your own CSS. It’s ideal for developers who want a simple yet powerful tool for creating toast notifications that fit perfectly into their workflow.
 
-
 ---
 
 ## Features
@@ -23,12 +22,12 @@ With sensible defaults for quick setup, you can configure Toaster to match your 
 - **Persistent toasts**: Keep toasts visible indefinitely with the `persist` option.
 - **Lightweight and dependency-free**: No external libraries required.
 - **Custom events**: Listen for custom events like `toaster:added` and `toaster:removed`.
-  
+
 ---
 
 ## Installation
 
-Install the `toaster` library using the package manager of your choice.
+Install the `@bgunnarsson/toaster` library using the package manager of your choice.
 
 ```bash
 pnpm i @bgunnarsson/toaster
@@ -55,13 +54,10 @@ const toaster = new Toaster({
   clickable: true,
   offset: { x: 10, y: 20 },
   customClass: 'my-toast',
-  pause: true,
-  stay: false
 });
 
 toaster.createToast({
-  content: '<p>Welcome to Toaster!</p>',
-  persist: false  // If true, the toast stays on screen indefinitely
+  content: '<p>Welcome to Toaster!</p>'
 });
 ```
 
@@ -73,11 +69,10 @@ toaster.createToast({
 |---------------|------------|-------------------|
 | `position`    | `string`   | `bottom right`    |
 | `duration`    | `number`   | `3000`            |
-| `clickable`   | `boolean`  | `false`           |
+| `clickable`   | `boolean`  | `true`           |
 | `offset`      | `object`   | `{ x: 0, y: 0 }`  |
-| `customClass` | `string`   | `""`              |
+| `customClass` | `string`   |                   |
 | `pause`       | `boolean`  | `true`            |
-| `stay`        | `boolean`  | `false`           |
 
 ### Position
 
@@ -139,12 +134,9 @@ document.addEventListener('toaster:removed', (event) => {
 
 # Advanced usage
 
-### Toast with Dynamic HTML Content and Custom Styling
+### Initialize the Toaster
 
-You can easily use the library to display dynamic content inside toasts, including custom HTML and CSS classes for styling.
-
-<details>
-<summary>Code example</summary>
+The options object is required.
 
 ```
 const toaster = new Toaster({
@@ -156,6 +148,16 @@ const toaster = new Toaster({
   pause: true               // Pause the toast when hovered
 });
 
+```
+
+### Toast with Dynamic HTML Content and Custom Styling
+
+You can easily use the library to display dynamic content inside toasts, including custom HTML and CSS classes for styling.
+
+<details>
+<summary>Code example</summary>
+
+```
 // Create a toast with rich HTML content
 toaster.toast({
   content: `
@@ -176,4 +178,118 @@ toaster.toast({
 
 
 
-### 
+### Persistent Notification for Important Messages
+
+Use the persist option to keep the toast on the screen indefinitely, useful for critical notifications that require user action.
+
+<details>
+<summary>Code</summary>
+
+```
+const toaster = new Toaster({
+  position: 'bottom left',
+  clickable: true,          // Allow clicking on the toast to dismiss it
+  customClass: 'alert-toast' // Apply a custom class for alert styling
+});
+
+// Create a persistent toast
+toaster.toast({
+  content: '<p class="alert-message">Action Required: Please update your payment method!</p>',
+  persist: true              // Keep the toast until manually dismissed
+});
+```
+
+</details>
+
+### Pause/Resume Functionality on Hover
+
+Create toasts that pause their dismissal countdown when the user hovers over them and resumes when the user moves their mouse away.
+
+<details>
+<summary></summary>
+
+```
+const toaster = new Toaster({
+  position: 'top left',
+  duration: 7000,   // The toast will stay visible for 7 seconds
+  pause: true       // Pause on hover
+});
+
+toaster.toast({
+  content: 'Hover over me to pause auto-dismiss!',
+  persist: false
+});
+
+```
+
+</details>
+
+### Toast with Custom Click Event
+
+By making the toast clickable, you can attach custom behavior, such as redirecting the user to a different page or showing more information.
+
+<details>
+<summary></summary>
+
+```
+const toaster = new Toaster({
+  position: 'top right',
+  clickable: true,  // Toast will be clickable
+  customClass: 'clickable-toast'
+});
+
+toaster.toast({
+  content: '<p>Click me to view more details!</p>',
+  persist: false
+});
+
+// Listening for clicks on the toast
+document.addEventListener('toaster:added', (event) => {
+  event.detail.element.addEventListener('click', () => {
+    window.location.href = '/details';  // Redirect to another page
+  });
+});
+
+```
+
+</details>
+
+### Handling Multiple Toasts with Event Listeners
+
+You can use custom events (toaster:added, toaster:removed) to track when toasts are added or removed, and react accordingly (e.g., logging or updating a UI component).
+
+<details>
+<summary></summary>
+
+```
+const toaster = new Toaster({
+  position: 'bottom right',
+  duration: 4000
+});
+
+// Listen for when a toast is added
+document.addEventListener('toaster:added', (event) => {
+  console.log('New toast added:', event.detail.toastData);
+});
+
+// Listen for when a toast is removed
+document.addEventListener('toaster:removed', (event) => {
+  console.log('Toast removed:', event.detail.element);
+});
+
+// Create a few toasts
+toaster.toast({ content: 'Toast 1' });
+toaster.toast({ content: 'Toast 2' });
+toaster.toast({ content: 'Toast 3' });
+
+```
+
+</details>
+
+<details>
+<summary></summary>
+
+```
+```
+
+</details>

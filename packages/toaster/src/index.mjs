@@ -27,7 +27,7 @@ export default function Toaster(options) {
   this.options = {
     position: options?.position || 'bottom right',
     duration: options?.duration || 3000,
-    clickable: options?.clickable || false,
+    clickable: options?.clickable || true,
     offset: options?.offset || { x: 0, y: 0 },
     customClass: options?.customClass || '',
     pause: options?.pause || true, // Option to enable/disable pause on hover
