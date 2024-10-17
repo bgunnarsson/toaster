@@ -32,11 +32,11 @@ export default function Toaster(options) {
   }
 
   Object.assign(rootDiv.style, positionStyles[this.options.position])
-  this.vars.rootElement.appendChild(rootDiv)
+  document.body.appendChild(rootDiv)
 
   const closeSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M4 4 L20 20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M20 4 L4 20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`
 
-  this.createToast = (text) => {
+  this.createToast = (toastData) => {
     const div = document.createElement('div')
     div.className = 'toaster__toast'
 
@@ -45,9 +45,20 @@ export default function Toaster(options) {
     closeButton.className = 'toaster__close'
     closeButton.innerHTML = closeSvg // This adds a '×' symbol
 
-    // Add the text and the close button to the toast
-    div.innerHTML = text
-    div.appendChild(closeButton)
+    // Check if toastData.content is HTML or text
+    if (typeof toastData.content === 'string' && toastData.content.includes('<')) {
+      // It's HTML, so use innerHTML
+      div.innerHTML = toastData.content
+    } else {
+      // It's plain text, use textContent
+      const textNode = document.createTextNode(toastData.content)
+      div.appendChild(textNode)
+    }
+
+    if (this.options.clickable) {
+      div.appendChild(closeButton)
+    }
+
     div.style.transition = 'transform 0.3s ease-in-out'
 
     // Determine the starting position for the animation based on this.options.position
