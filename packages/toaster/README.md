@@ -59,7 +59,8 @@ Since this package includes both `CJS` and `ESM` files it will work with both `r
 
 ```javascript
 import Toaster from '@bgunnarsson/toaster"
-
+```
+```javascript
 const Toaster = require('@bgunnarsson/toaster')
 ```
 
