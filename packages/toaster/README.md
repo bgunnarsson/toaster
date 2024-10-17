@@ -81,8 +81,8 @@ This is the HTML structure that is created
 
 | **Option**  | **Type**   | **Default Value** |
 |-------------|------------|-------------------|
-| `position`  | `string`   | `'top right'`     |
+| `position`  | `string`   | `top right`     |
 | `duration`  | `number`   | `3000`            |
 | `clickable` | `boolean`  | `false`           |
 | `offset`    | `object`   | `{ x: 0, y: 0 }`  |
-| `class`     | `string`   | `'toaster'`       |
+| `class`     | `string`   |                   |
