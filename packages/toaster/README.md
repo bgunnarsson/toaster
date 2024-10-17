@@ -8,9 +8,11 @@ The easiest toast library ever. Nothing you don't need, everything you **_do_** 
 
 ---
 
-Toaster is a lightweight, dependency-free JavaScript library for creating toast notifications with ease. It’s designed to give developers full control over the look, feel, and behavior of toasts, without enforcing any styles or unnecessary functionality. Whether you're displaying simple text alerts or rich HTML content, Toaster provides a flexible and customizable solution that fits right into any project.
+Welcome to **@bgunnarsson/Toaster**, the lightweight, dependency-free JavaScript library that gives you full control over your notifications—crispy on the outside, customizable on the inside. Whether you're looking to pop up simple text alerts or serve up rich HTML content, Toaster’s got your back, no unnecessary fluff, and no burnt toast.
 
-With sensible defaults for quick setup, you can configure Toaster to match your project’s requirements using a combination of options, custom classes, and your own CSS. It’s ideal for developers who want a simple yet powerful tool for creating toast notifications that fit perfectly into their workflow.
+Designed with developers in mind, **@bgunnarsson/Toaster** lets you take the wheel. No enforced styles, no bloated features, just a clean, flexible solution that slides perfectly into any project. Want to position your toast in the top right? Bottom left? Sprinkle it with custom classes and your own CSS? Go for it. We give you the freedom to create toast notifications that look and behave exactly how you want them to.
+
+With sensible defaults for quick setup, **@bgunnarsson/Toaster** is the perfect sidekick—whether you’re in a hurry or have time to fine-tune every last detail. Simple, powerful, and fully customizable—because who doesn't love a perfectly timed toast?
 
 ---
 
