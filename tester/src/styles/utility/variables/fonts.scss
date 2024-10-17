@@ -1,0 +1,153 @@
+////
+/// @group Typography
+////
+
+// see src/assets/preload.css for the @font-face declarations
+
+// Fonts
+$fonts: (
+  default: (
+    // 'Montserrat', // The custom font for the website
+    'Arial',
+    sans-serif,
+  ),
+);
+
+// ! some fonts have different weight numbers so this is in here to mitigate that if you encounter a font family that has a different number for e.g. bold, semi-bold or whatever.
+$font-weights: (
+  thin: 100,
+  extra-light: 200,
+  light: 300,
+  regular: 400,
+  medium: 500,
+  semi-bold: 600,
+  bold: 700,
+  extra-bold: 800,
+  black: 900,
+);
+
+/// Headlines variable map
+/// @type Map
+$headlines: (
+  headline1: (
+    size: rem(34),
+    sizeDesktop: rem(40),
+    lineHeight: rem(44),
+    lineHeightDesktop: rem(50),
+    weight: map-get($font-weights, black),
+    textTransform: uppercase,
+  ),
+  headline2: (
+    size: rem(16),
+    lineHeight: rem(26),
+    weight: map-get($font-weights, bold),
+    textTransform: uppercase,
+  ),
+  headline3: (
+    size: rem(14),
+    lineHeight: rem(17),
+    weight: map-get($font-weights, bold),
+    textTransform: uppercase,
+  ),
+  headline4: (
+    size: rem(16),
+    lineHeight: rem(26),
+    weight: map-get($font-weights, black),
+    textTransform: uppercase,
+  ),
+);
+
+/// Subtitles variable map
+/// @type Map
+$subtitles: (
+  subtitle1: (
+    size: rem(12),
+    lineHeight: rem(22),
+    weight: map-get($font-weights, bold),
+    textTransform: uppercase,
+  ),
+  subtitle2: (
+    size: rem(12),
+    lineHeight: rem(22),
+    weight: map-get($font-weights, regular),
+    textTransform: uppercase,
+  ),
+);
+
+/// Forms variable Map
+/// @type Map
+$forms: (
+  input: (
+    size: rem(16),
+    lineHeight: rem(26),
+    weight: map-get($font-weights, regular),
+  ),
+  label: (
+    size: rem(12),
+    lineHeight: rem(24),
+    weight: map-get($font-weights, bold),
+    textTransform: uppercase,
+  )
+);
+
+/// Texts variable map.
+/// @type Map
+$texts: (
+  button: (
+    size: rem(14),
+    lineHeight: rem(24),
+    weight: map-get($font-weights, semi-bold),
+    textTransform: uppercase,
+  ),
+  body1: (
+    size: rem(16),
+    lineHeight: rem(26),
+    weight: map-get($font-weights, regular),
+  ),
+  body2: (
+    size: rem(14),
+    lineHeight: rem(24),
+    weight: map-get($font-weights, regular),
+  ),
+  blockquote: (
+    size: rem(36),
+    lineHeight: rem(46),
+    weight: map-get($font-weights, regular),
+  ),
+);
+
+/// Typography map. This is a combination of all relevant maps inside this file.
+/// @type Map
+$typography: map-combine($headlines, $subtitles, $texts, $forms);
+
+/// Font function.
+/// Retrieves a font from the $fonts map.
+/// @param {String} $key [undefined] - Primary key.
+/// @example .foo { font-family: font(default); }
+@function font($key) {
+  @return map-get($fonts, $key);
+}
+
+/// Type function (typography).
+/// Can be used with both 1 and 2 keys.
+/// @param {String} $key [undefined] - Primary key.
+/// @param {String} $key2 [null] - Secondary key (used for nested properties), optional.
+/// @example .foo { font-size: type(headline1, size); }
+/// @example .foo { line-height: type(headline1, lineHeight); }
+/// @example .foo { line-height: type(button, size); }
+@function type($key, $key2: null) {
+  $type: map-get($typography, $key);
+
+  @if $key2 {
+    $type: map-deep-get($typography, $key, $key2);
+  }
+
+  @return $type;
+}
+
+/// Weight function (typography).
+/// @param {String} $key [undefined] - Primary key.
+/// @example .foo { font-weight: weight(bold); }
+@function weight($key) {
+  @return map-get($font-weights, $key);
+}

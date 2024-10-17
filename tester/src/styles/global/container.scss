@@ -1,0 +1,71 @@
+////
+/// @group Layout
+////
+
+/// Container width variable map.
+/// @type Map
+$container-width: (
+  default: 100%,
+  tablet: rem(576),
+  desktop-xs: rem(776),
+  desktop-s: rem(992),
+  desktop-m: rem(1125),
+  desktop-l: rem(1280),
+  desktop-xl: rem(1320),
+  desktop-xxl: rem(1440),
+  ultrawide: rem(1460),
+);
+
+@function container($key) {
+	@return map-get($container-width, $key);
+}
+
+/// Used for flex containers.
+.container--flex {
+	display: flex;
+}
+
+/// Container styles.
+.container,
+.container--flex {
+  max-width: container(default);
+  padding: 0 rem(30);
+
+  @include mq(tablet) {
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0 rem(20);
+  }
+
+  @include mqOnly(tablet) {
+    max-width: container(tablet);
+  }
+
+  @include mqOnly(desktop-xs) { 
+    max-width: container(desktop-xs);
+  }
+
+  @include mqOnly(desktop-s) { 
+    max-width: container(desktop-s);
+  }
+
+  @include mqOnly(desktop-m) { 
+    max-width: container(desktop-m);
+  }
+
+  @include mqOnly(desktop-l) { 
+    max-width: container(desktop-l);
+  }
+
+  @include mqOnly(desktop-xl) { 
+    max-width: container(desktop-xl);
+  }
+
+  @include mqOnly(desktop-xxl) { 
+    max-width: container(desktop-xxl);
+  }
+
+  @include mq(ultrawide) { 
+    max-width: container(ultrawide);
+  }
+}

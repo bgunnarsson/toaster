@@ -1,0 +1,146 @@
+{
+  "organizeImports": {
+    "enabled": false
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "a11y": {
+        "noAutofocus": "error",
+        "noBlankTarget": "error",
+        "noPositiveTabindex": "error",
+        "useAltText": "error",
+        "useAnchorContent": "error",
+        "useButtonType": "error",
+        "useKeyWithClickEvents": "warn",
+        "useKeyWithMouseEvents": "off",
+        "useValidAnchor": "error"
+      },
+      "complexity": {
+        "noExtraBooleanCast": "error",
+        "noMultipleSpacesInRegularExpressionLiterals": "error",
+        "noUselessFragments": "error",
+        "useFlatMap": "warn",
+        "useOptionalChain": "off",
+        "useSimplifiedLogicExpression": "off",
+        "noForEach": "off"
+      },
+      "correctness": {
+        "noChildrenProp": "error",
+        "noConstAssign": "error",
+        "noEmptyPattern": "off",
+        "noNewSymbol": "off",
+        "noRenderReturnValue": "error",
+        "noUndeclaredVariables": "off",
+        "noUnnecessaryContinue": "error",
+        "noUnreachable": "error",
+        "noUnusedVariables": "error",
+        "noVoidElementsWithChildren": "error",
+        "useValidForDirection": "error"
+      },
+      "performance": {
+        "noDelete": "error"
+      },
+      "security": {
+        "noDangerouslySetInnerHtml": "off",
+        "noDangerouslySetInnerHtmlWithChildren": "off"
+      },
+      "style": {
+        "noArguments": "error",
+        "noImplicitBoolean": "off",
+        "noNegationElse": "off",
+        "noShoutyConstants": "off",
+        "noUnusedTemplateLiteral": "error",
+        "useBlockStatements": "error",
+        "useFragmentSyntax": "error",
+        "useSelfClosingElements": "error",
+        "useShorthandArrayType": "off",
+        "useSingleCaseStatement": "off",
+        "useSingleVarDeclarator": "error",
+        "useTemplate": "warn",
+        "useWhile": "warn",
+        "noParameterAssign": "off"
+      },
+      "suspicious": {
+        "noArrayIndexKey": "error",
+        "noAsyncPromiseExecutor": "error",
+        "noCatchAssign": "error",
+        "noCommentText": "error",
+        "noCompareNegZero": "error",
+        "noDebugger": "warn",
+        "noDoubleEquals": "error",
+        "noDuplicateParameters": "error",
+        "noExplicitAny": "off",
+        "noMisleadingCharacterClass": "warn",
+        "noFunctionAssign": "error",
+        "noImportAssign": "error",
+        "noLabelVar": "error",
+        "noShadowRestrictedNames": "error",
+        "noSparseArray": "error",
+        "noUnsafeNegation": "error",
+        "useValidTypeof": "error",
+        "noRedeclare": "off"
+      }
+    },
+    "ignore": [
+      "**/Vettvangur.Site",
+      "**/Vettvangur.Core",
+      "**/node_modules",
+      "**/docs",
+      "**/src/scripts/libs/**/*",
+      "**/src/scripts/libs",
+      "**/src/__tests__",
+      "**/src/tests",
+      "**/src/assets",
+      "**/.vscode",
+      "**/tsconfig.json",
+      "rome.json",
+      "**/rome.json",
+      "**/esbuild.config.mjs",
+      "**/README.md",
+      "**/pnpm-lock.yaml",
+      "**/localhost-key.pem",
+      "**/localhost.pem",
+      "**/.gitignore",
+      "**/readme",
+      "**/src/scripts/utility/validation/**/*"
+    ]
+  },
+  "formatter": {
+    "enabled": true,
+    "formatWithErrors": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 120,
+    "ignore": [
+      "**/Vettvangur.Site",
+      "**/Vettvangur.Core",
+      "**/node_modules",
+      "**/docs",
+      "**/src/scripts/libs/**/*",
+      "**/src/scripts/libs",
+      "**/src/__tests__",
+      "**/src/tests",
+      "**/src/assets",
+      "**/.vscode",
+      "**/tsconfig.json",
+      "rome.json",
+      "**/rome.json",
+      "**/esbuild.config.mjs",
+      "**/README.md",
+      "**/pnpm-lock.yaml",
+      "**/localhost-key.pem",
+      "**/localhost.pem",
+      "**/.gitignore",
+      "**/readme",
+      "**/src/scripts/utility/validation/**/*"
+    ]
+  },
+  "javascript": {
+    "formatter": {
+      "semicolons": "asNeeded",
+      "trailingComma": "es5",
+      "quoteStyle": "single"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+////
+/// @group Utility
+////
+
+/// z-index variable map. By doing it this way we can easily visualize our layers.
+/// @type Map
+$indexes: (
+  top: 3,
+  middle: 2,
+  bottom: 1,
+  infinity: 9999, // and beyond!
+);
+
+/// z-index function to retrieve values from the connected map.
+/// @param {String} $key [undefined] - The value that is requested, e.g. z(infinity).
+@function zindex($key, $key2: null) {
+  $value: map-get($indexes, $key);
+
+  @if $key2 {
+    $value: map-deep-get($indexes, $key, $key2);
+  }
+
+  @return $value;
+}

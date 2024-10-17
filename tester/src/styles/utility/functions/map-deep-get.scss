@@ -1,0 +1,8 @@
+// This function is used to get a value from maps that have nested maps
+// usage: map-deep-get($mapName, $keyLevel1, $keyLevel2, etc...);
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+  @return $map;
+}

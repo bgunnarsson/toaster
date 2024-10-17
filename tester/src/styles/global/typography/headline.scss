@@ -1,0 +1,93 @@
+////
+/// @group Typography
+////
+
+/// Headline theme mixin. Can be used as standalone.
+/// @param {Number} $FontSize [undefined] - font-size.
+/// @param {Number} $LineHeight [undefined] - line-height.
+/// @param {Color} $Color [color(headline)] - color, optional.
+/// @param {string} $FontWeight [regular] - font-weight, optional.
+/// @param {string} $FontFamily [font(default)] - font-size, optional.
+/// @param {string} $TextTransform [none] - text-transform, optional.
+@mixin headline-theme(
+  $FontSize,
+  $LineHeight,
+  $Color: color(headline, default),
+  $FontWeight: weight(regular),
+  $FontFamily: font(default),
+  $TextTransform: none,
+) {
+  font-size: $FontSize;
+  line-height: $LineHeight;
+  color: $Color;
+  font-weight: $FontWeight;
+  font-family: $FontFamily;
+  text-transform: $TextTransform;
+}
+
+/// This class is extended by all other headlines so there is no need to use this base class directly.
+.headline {
+  word-break: break-word;
+  hyphens: none;
+}
+
+/// Headline 1.
+/// All headlines extend the .headline class so there is no need to use that class directly.
+.headline1 {
+  @extend .headline;
+
+  @include headline-theme(
+    $FontSize: type(headline1, size),
+    $LineHeight: type(headline1, lineHeight),
+    $FontWeight: type(headline1, weight),
+    $TextTransform: type(headline1, textTransform),
+  );
+
+  @include mq(desktop-xs) {
+    @include headline-theme(
+      $FontSize: type(headline1, sizeDesktop),
+      $LineHeight: type(headline1, lineHeightDesktop),
+      $FontWeight: type(headline1, weight),
+      $TextTransform: type(headline1, textTransform),
+    );
+  }
+}
+
+/// Headline 2
+/// All headlines extend the .headline class so there is no need to use that class directly.
+.headline2 {
+  @extend .headline;
+
+  @include headline-theme(
+    $FontSize: type(headline2, size),
+    $LineHeight: type(headline2, lineHeight),
+    $FontWeight: type(headline2, weight),
+    $TextTransform: type(headline2, textTransform),
+  );
+}
+
+/// Headline 3
+/// All headlines extend the .headline class so there is no need to use that class directly.
+.headline3 {
+  @extend .headline;
+
+  @include headline-theme(
+    $FontSize: type(headline3, size),
+    $LineHeight: type(headline3, lineHeight),
+    $FontWeight: type(headline3, weight),
+    $TextTransform: type(headline3, textTransform),
+  );
+}
+
+/// Headline 4
+/// All headlines extend the .headline class so there is no need to use that class directly.
+.headline4 {
+  @extend .headline;
+
+  @include headline-theme(
+    $FontSize: type(headline4, size),
+    $LineHeight: type(headline4, lineHeight),
+    $FontWeight: type(headline4, weight),
+    $TextTransform: type(headline4, textTransform),
+  );
+}

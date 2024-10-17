@@ -1,0 +1,18 @@
+$scrollbar-track: #f3f3f3;
+
+::-webkit-scrollbar {
+	width: rem(8);
+}
+
+::-webkit-scrollbar-track {
+  background: $scrollbar-track;
+}
+
+::-webkit-scrollbar-thumb {
+  // background: darken($scrollbar-track, 10%);
+	background: darken($scrollbar-track, 20%);
+
+	&:hover {
+		background: darken($scrollbar-track, 40%);
+	}
+}

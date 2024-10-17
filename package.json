@@ -1,0 +1,30 @@
+{
+  "name": "root",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "build": "pnpm --filter tester build",
+    "dev": "pnpm --filter tester dev"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@babel/core",
+        "@babel/plugin-transform-react-jsx",
+        "vite",
+        "react",
+        "react-dom",
+        "@types/react",
+        "tslib",
+        "quill-delta",
+        "rxjs"
+      ],
+      "allowAny": [
+        "rustikus"
+      ]
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

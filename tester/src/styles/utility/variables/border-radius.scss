@@ -1,0 +1,19 @@
+////
+/// @group Utility
+////
+
+/// Border radius variable map.
+/// @type Map
+$border-radius: (
+  default: rem(3),
+  large: rem(6),
+  rounded: rem(100),
+  circle: 50%,
+);
+
+/// Border radius function to retrieve values from the connected map.
+/// @param {String} $key [undefined] - The value that is requested, e.g. radius(default).
+/// @example .foo { border-radius: radius(default); }
+@function radius($key) {
+  @return map-get($border-radius, $key);
+}

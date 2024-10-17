@@ -1,0 +1,32 @@
+// Only display content to screen readers
+// See: http://a11yproject.com/posts/how-to-hide-content/
+// See: https://hugogiraudel.com/2016/10/13/css-hide-and-seek/
+
+@mixin sr-only {
+	position: fixed;
+	top: 0;
+	left: rem(-9999);
+	transition: 0s;
+}
+
+@mixin sr-only-focusable {
+	&:active,
+	&:focus {
+		top: rem(10);
+		left: rem(10);
+		z-index: zindex(infinity);
+		padding: rem(10);
+		font-size: type(body2, size);
+		background: color(primary, default);
+		border: rem(2) solid color(primary, default);
+		color: #fff;
+	}
+}
+
+.sr-only {
+	@include sr-only();
+}
+
+.sr-only-focusable {
+	@include sr-only-focusable();
+}

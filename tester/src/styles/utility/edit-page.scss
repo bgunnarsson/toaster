@@ -1,0 +1,44 @@
+.edit-page svg {
+  width: 50%;
+  fill: color(umbraco, blue);
+  transition: transform .5s ease-in-out, fill .5s ease-in-out;
+}
+
+.edit-page span {
+  font-size: 0;
+}
+
+.edit-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 50%;
+  right: 0;
+  z-index: 99999;
+  transform: translate(50%, -50%);
+  width: rem(80);
+  height: rem(80);
+  background: color(umbraco, pink);
+  color: color(umbraco, blue);
+  border-radius: 50%;
+  transition: transform .5s ease-in-out, background .5s ease-in-out, box-shadow .5s ease-in-out;
+
+  &:hover {
+    transform: translate(50%, -50%) scale(2.4);
+    background: color(umbraco, blue);
+    box-shadow: 0 rem(.9) rem(1.7) rem(-20) rgba(color(umbraco, black), .471),
+      0 rem(2.5) rem(4.8) rem(-20) rgba(color(umbraco, black), .493),
+      0 rem(6) rem(11.5) rem(-20) rgba(color(umbraco, black), .528),
+      0 rem(20) rem(38) rem(-20) rgba(color(umbraco, black), .65);
+
+    svg {
+      transform: translateX(-50%) scale(.5);
+      fill: color(umbraco, pink);
+    }
+  }
+
+  &:active svg {
+    fill: color(umbraco, yellow);
+  }
+}

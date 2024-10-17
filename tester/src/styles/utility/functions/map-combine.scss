@@ -1,0 +1,11 @@
+// This function merges two or more maps into one
+// usage: $mapName: map-combine($map1, $map2, $map3);
+@function map-combine($maps...) {
+  $collection: ();
+
+  @each $map in $maps {
+    $collection: map-merge($collection, $map);
+  }
+
+  @return $collection;
+}

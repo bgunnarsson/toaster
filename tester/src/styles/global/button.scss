@@ -1,0 +1,164 @@
+////
+/// @group Buttons
+////
+
+
+$button-sizes: (
+  default: rem(54),
+);
+
+@function button-size($key) {
+  @return map-get($button-sizes, $key);
+}
+
+/// Button theme mixin.
+/// All paramters have default values.
+/// @param {Color} $TextColor [#fff] - Text color, optional.
+/// @param {Color} $HoverTextColor [#fff] - Text color - Hover, optional.
+/// @param {Color} $BorderColor [color(primary, default)] - Border color, optional.
+/// @param {Color} $HoverBorderColor [color(primary, hover)] - Border color - Hover, optional.
+/// @param {Color} $BackgroundColor [color(primary, default)] - Background color, optional.
+/// @param {Color} $HoverBackgroundColor [color(primary, hover)] - Background color - Hover, optional.
+/// @param {Number} $Padding [rem(18) rem(30) rem(17) rem(30)] - Padding, optional.
+/// @param {Number} $BorderRadius [radius(default)] - Border radius, optional.
+/// @param {Number} $BorderWidth [rem(1)] - Border width, optional.
+@mixin button-theme(
+  $TextColor: #fff,
+  $HoverTextColor: #fff,
+
+  $BorderColor: color(primary, default),
+  $HoverBorderColor: color(primary, hover),
+
+  $BackgroundColor: color(primary, default),
+  $HoverBackgroundColor: color(primary, hover),
+
+  $Padding: rem(18) rem(30) rem(17) rem(30),
+
+  $BorderRadius: radius(default),
+  $BorderWidth: rem(1),
+) {
+  padding: $Padding;
+  color: $TextColor;
+  background-color: $BackgroundColor;
+
+  // ! borders so the button will always match an input element in height (without the border, it will always be 1-2px off)
+  border-width: $BorderWidth;
+  border-color: $BorderColor;
+  border-radius: $BorderRadius;
+
+  svg,
+  svg > path {
+    fill: $TextColor;
+  }
+
+  &:not([disabled]) {
+    &:hover,
+    &:active {
+      color: $HoverTextColor;
+      border-color: $HoverBorderColor;
+      background-color: $HoverBackgroundColor;
+
+      svg path {
+        fill: $HoverTextColor;
+      }
+    }
+  }
+}
+
+/// Button base class.
+.button {
+  position: relative;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: button-size(default);
+  
+  // transform / transition
+  transform: translateY(0);
+  transition: color .4s ease-in-out, background-color .4s ease-in-out, border-color .4s ease-in-out;
+  
+  // type
+  font-family: font(default);
+  font-size: type(button, size);
+  line-height: type(button, lineHeight);
+  font-weight: type(button, weight);
+  text-transform: type(button, textTransform);
+
+  // alignment
+  vertical-align: middle;
+
+  // border
+  border-style: solid;
+  border-width: rem(2);
+  border-color: transparent;
+
+  // ! this helps with getting the correct event.target in javascript clicks.
+  > * {
+    pointer-events: none;
+  }
+
+  svg,
+  svg path {
+    transition: fill .4s ease-in-out;
+  }
+
+  &:not([disabled]):active {
+    transform: translateY(rem(1));
+  }
+}
+
+/// Button icon class.
+.button__icon {
+  line-height: 0;
+  margin-right: gutter(m);
+}
+
+// Button theme styles
+
+/// Default button.
+.button--default {
+  @include button-theme();
+}
+
+/// Secondary button.
+.button--secondary {
+  @include button-theme(
+    $TextColor: #fff,
+    $HoverTextColor: #fff,
+
+    $BorderColor: color(secondary, default),
+    $HoverBorderColor: color(secondary, hover),
+
+    $BackgroundColor: color(secondary, default),
+    $HoverBackgroundColor: color(secondary, hover),
+  );
+}
+
+// ... other button themes here
+
+
+/// Square button.
+.button--square {
+  width: button-size(default);
+  height: button-size(default);
+  padding: 0;
+
+  .button__text {
+    font-size: 0;
+    display: none;
+  }
+
+  .button__icon {
+    margin: 0;
+  }
+}
+
+/// Disabled.
+.button[disabled] {
+  color: #929292;
+  background: color(background);
+  border-color: color(disabled);
+  cursor: not-allowed;
+}

@@ -1,0 +1,54 @@
+////
+/// @group Typography
+////
+
+
+/// Subtitle theme mixin. Can be used as standalone.
+/// @param {Number} $FontSize [undefined] - font-size.
+/// @param {Number} $LineHeight [undefined] - line-height.
+/// @param {Color} $Color [color(text, default)] - color, optional.
+/// @param {string} $FontFamily [font(default)] - font-size, optional.
+/// @param {string} $FontWeight [type(subtitle2, weight)] - font-weight, optional.
+/// @param {string} $TextTransform [type(subtitle1, textTransform)] - text-transform, optional.
+@mixin subtitle-theme(
+  $FontSize, 
+  $LineHeight, 
+  $Color: color(headline, default), 
+  $FontFamily: font(default),
+  $FontWeight: type(subtitle2, weight),
+  $TextTransform: type(subtitle1, textTransform),
+) {
+  font-size: $FontSize;
+  line-height: $LineHeight;
+  color: $Color;
+  font-family: $FontFamily;
+  font-weight: $FontWeight;
+  text-transform: $TextTransform;
+}
+
+// This class is extended by all other headings so there is no need to use this base class directly.
+.subtitle {
+  word-break: break-all;
+  hyphens: none;
+}
+
+/// Subtitle 1
+.subtitle1 {
+  @extend .subtitle;
+
+  @include subtitle-theme(
+    $FontSize: type(subtitle1, size),
+    $LineHeight: type(subtitle1, lineHeight),
+    $FontWeight: type(subtitle1, weight),
+  );
+}
+
+/// Subtitle 2
+.subtitle2 {
+  @extend .subtitle;
+
+  @include subtitle-theme(
+    $FontSize: type(subtitle2, size),
+    $LineHeight: type(subtitle2, lineHeight),
+  );
+}

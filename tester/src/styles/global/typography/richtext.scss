@@ -1,0 +1,39 @@
+////
+/// @group Typography
+////
+
+/// Richtext class styles. This is used for all blocks/pages that implement the richtext editor in Umbraco.
+.richtext {
+  h1, h2 {
+    @extend .headline1;
+    margin-bottom: gutter(m);
+  }
+
+  h3 {
+    @extend .headline3;
+    margin-bottom: gutter(m);
+  }
+
+  h4 {
+    @extend .headline4;
+    margin-bottom: gutter(m);
+  }
+  
+  p {
+    font-size: type(body1, size);
+    line-height: type(body1, lineHeight);
+
+    // Spacing
+    margin-bottom: gutter(m);
+
+    @include mq(tablet) {
+      margin-bottom: gutter(l);
+    }
+  }
+
+  @extend .text-styling;
+  
+  table {
+    @extend .table;
+  }
+}

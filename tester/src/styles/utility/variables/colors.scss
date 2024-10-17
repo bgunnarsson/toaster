@@ -1,0 +1,77 @@
+////
+/// @group Colors
+////
+
+/// Website specific color map.
+/// Here the developer can add other colors that are not part of the base colors.
+/// @type Map
+$websiteColors: (
+  blue: blue,
+  green: green,
+  background: #fff,
+  // ... your colors here
+);
+
+/// Base color variable map.
+/// Do not add your colors here, use the $websiteColors map instead.
+/// @type Map
+/// @prop {Color} primary.default [#3370B7] - Primary color.
+/// @prop {Color} primary.hover [#28588f] - Primary color, hover.
+/// @prop {Color} secondary.default [#3EB733] - Secondary color.
+/// @prop {Color} secondary.hover [#308f28] - Secondary color, hover.
+/// @prop {Color} text [#69777C] - Text color.
+/// @prop {Color} headline [#4E4E4E] - Headline color.
+/// @prop {Color} border [#D0DEE5] - Border color.
+/// @prop {Color} error [#B73333] - Error color.
+/// @prop {Color} disabled [#D0DEE5] - Disabled color.
+$baseColors: (
+  primary: (
+    default: #3370B7,
+    hover: #28588f,
+  ),
+  secondary: (
+    default: #3EB733,
+    hover: darken(#3EB733, 10%),
+  ),
+  headline: (
+    default: #4E4E4E,
+  ),
+  text: (
+    default: #69777C,
+  ),
+  border: (
+    default: #D0DEE5,
+  ),
+  error: #B73333,
+  disabled: #D0DEE5,
+
+  // Umbraco (edit page button)
+  umbraco: (
+    blue: #3645b0,
+    pink: #fa9fa1,
+    yellow: #f2db09,
+    black: #000,
+  ),
+);
+
+/// Colors variable map. This is a combination of all relevant maps inside this file.
+/// @type Map
+$colors: map-combine($baseColors, $websiteColors);
+
+/// Color function.
+/// Can be used with both 1 and 2 keys.
+/// @param {String} $key [undefined] - Primary key.
+/// @param {String} $key2 [null] - Secondary key (used for nested properties), optional.
+/// @param {Number} $alpha [1] - Alpha (transparency of chosen color), optional.
+/// @example .foo { color: color(primary, default); }
+/// @example .foo { background: color(primary, $alpha: 0.5); }
+/// @example .foo { color: color(border); }
+@function color($key, $key2: null, $alpha: 1) {
+  $color: map-get($colors, $key);
+
+  @if $key2 {
+    $color: map-deep-get($colors, $key, $key2);
+  }
+
+  @return rgba($color, $alpha);
+}
