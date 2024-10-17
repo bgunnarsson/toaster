@@ -9,6 +9,10 @@ importers:
   .: {}
 
   packages/toaster:
+    dependencies:
+      rollup-plugin-gzip:
+        specifier: ^4.0.1
+        version: 4.0.1(rollup@4.24.0)
     devDependencies:
       '@rollup/plugin-babel':
         specifier: ^6.0.4
@@ -2693,6 +2697,12 @@ packages:
   rimraf@5.0.10:
     resolution: {integrity: sha512-l0OE8wL34P4nJH/H2ffoaniAokM2qSmrtXHmlpvYr5AVVX8msAyW0l8NVJFDxlSK4u3Uh/f41cQheDVdnYijwQ==}
     hasBin: true
+
+  rollup-plugin-gzip@4.0.1:
+    resolution: {integrity: sha512-HVukJ5vwTxgzKaNeKCNEqFRQ+/T/j/3zqoUaCN3VGTt8/Mn7Wu2nMCE8VBIDubjM5U+QGgiWs6fYysn63JZY1g==}
+    engines: {node: '>=10.0.0'}
+    peerDependencies:
+      rollup: '>=2.0.0'
 
   rollup@2.79.2:
     resolution: {integrity: sha512-fS6iqSPZDs3dr/y7Od6y5nha8dW1YnbgtsyotCVvoFGKbERG++CVRFv1meyGDE1SNItQA8BrnCw7ScdAhRJ3XQ==}
@@ -5904,6 +5914,10 @@ snapshots:
   rimraf@5.0.10:
     dependencies:
       glob: 10.4.5
+
+  rollup-plugin-gzip@4.0.1(rollup@4.24.0):
+    dependencies:
+      rollup: 4.24.0
 
   rollup@2.79.2:
     optionalDependencies:

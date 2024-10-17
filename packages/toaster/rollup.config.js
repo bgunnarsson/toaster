@@ -1,7 +1,8 @@
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import { babel } from '@rollup/plugin-babel'
-import terser from '@rollup/plugin-terser' // Import terser as default
+import terser from '@rollup/plugin-terser'
+import gzipPlugin from 'rollup-plugin-gzip'
 
 export default {
   input: 'src/index.mjs', // Your input file
@@ -24,5 +25,12 @@ export default {
       exclude: 'node_modules/**', // Only transpile our source code
     }),
     terser(), // Minifies the output
+    gzipPlugin({
+      additionalFiles: ['dist/toaster.esm.js', 'dist/toaster.cjs.js'], // Which files to compress
+      filter: /\.js$/, // Only compress JS files
+      gzipOptions: {
+        level: 9, // Maximum compression
+      },
+    }),
   ],
 }

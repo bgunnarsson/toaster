@@ -35,25 +35,25 @@ $headlines: (
     lineHeight: rem(44),
     lineHeightDesktop: rem(50),
     weight: map-get($font-weights, black),
-    textTransform: uppercase,
+    textTransform: none,
   ),
   headline2: (
     size: rem(16),
     lineHeight: rem(26),
     weight: map-get($font-weights, bold),
-    textTransform: uppercase,
+    textTransform: none,
   ),
   headline3: (
     size: rem(14),
     lineHeight: rem(17),
     weight: map-get($font-weights, bold),
-    textTransform: uppercase,
+    textTransform: none,
   ),
   headline4: (
     size: rem(16),
     lineHeight: rem(26),
     weight: map-get($font-weights, black),
-    textTransform: uppercase,
+    textTransform: none,
   ),
 );
 

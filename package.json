@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "",
   "scripts": {
-    "build": "pnpm --filter tester build",
+    "build": "pnpm tb & pnpm --filter tester build",
     "dev": "pnpm --filter tester dev",
     "td": "pnpm --filter @bgunnarsson/toaster dist",
     "tb": "pnpm --filter @bgunnarsson/toaster build"

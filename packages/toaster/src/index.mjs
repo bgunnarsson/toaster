@@ -2,7 +2,6 @@
  * @typedef {Object} ToasterOptions
  * @property {string} [position="bottom right"] - The position of the toaster ('top left', 'top right', 'bottom left', 'bottom right').
  * @property {number} [duration=3000] - The duration in milliseconds for the toast to be displayed.
- * @property {boolean} [clickable=false] - Whether the entire toast is clickable.
  * @property {Object} [offset={x: 0, y: 0}] - The offset in pixels from the edges of the screen.
  * @property {string} [customClass=""] - A custom CSS class applied to the toaster.
  * @property {boolean} [pause=true] - Whether the auto-close timeout should pause when hovering.
@@ -67,30 +66,38 @@ export default function Toaster(options) {
    * @param {Object} toastData - The data for the toast.
    * @param {string} toastData.content - The content of the toast (can be HTML or text).
    * @param {boolean} [toastData.persist=false] - If true, the toast stays on the screen indefinitely.
+   * @property {boolean} [clickable=true] - Whether the entire toast is clickable.
    */
   this.toast = (toastData) => {
+    if (!toastData?.clickable) {
+      toastData.clickable = true
+    }
     // Create either a 'button' or a 'div' based on the clickable option
     const div = document.createElement(this.options.clickable ? 'button' : 'div')
     div.className = `toaster__toast ${options?.customClass}__toast`
 
-    if (this.options.clickable) {
+    if (toastData?.clickable) {
       // Style the button to behave like a div
       div.style.cursor = 'pointer'
+      div.type = 'button'
+      div.title = 'Click to dismiss'
     }
 
     let toastTimeout
 
     // Check if content is HTML or text
-    const content = document.createElement('div') // Separate container for content
-    content.innerHTML =
-      typeof toastData.content === 'string' && toastData.content.includes('<')
-        ? toastData.content
-        : `<span>${toastData.content}</span>`
+    // const content = document.createElement('div') // Separate container for content
+    // content.innerHTML =
+    //   typeof toastData.content === 'string' && toastData.content.includes('<')
+    //     ? toastData.content
+    //     : `<span>${toastData.content}</span>`
 
     // Append content after the close button
-    div.appendChild(content)
+    // div.appendChild(content)
 
-    const offsetX = this.options.offset.x
+    div.insertAdjacentHTML('beforeend', toastData?.content)
+
+    const offsetX = this?.options?.offset?.x
     div.style.transition = 'transform 0.2s ease-in'
     div.style.transform = position.includes('left')
       ? `translateX(calc(-100% - ${offsetX}px))`
@@ -110,7 +117,7 @@ export default function Toaster(options) {
     // Function to set the auto-close timeout
     const startTimeout = () => {
       // Only apply the timeout if stay is false
-      toastTimeout = setTimeout(() => closeToast(div, position.includes('left')), this.options.duration)
+      toastTimeout = setTimeout(() => closeToast(div, position.includes('left')), this?.options?.duration)
     }
 
     // Dispatch custom 'toaster:added' event when a toast is created
@@ -122,7 +129,7 @@ export default function Toaster(options) {
     }
 
     // Pause the timeout on hover
-    if (this.options.pause && !toastData.persist) {
+    if (this?.options?.pause && !toastData?.persist) {
       div.addEventListener('mouseenter', () => {
         clearTimeout(toastTimeout) // Clear the timeout to pause the closing
       })
@@ -134,9 +141,9 @@ export default function Toaster(options) {
     }
 
     // If the toast is clickable, set a click event listener
-    if (this.options.clickable) {
+    if (toastData?.clickable) {
       div.addEventListener('click', () => {
-        closeToast(div, position.includes('left')) // Optionally close the toast when clicked
+        closeToast(div, position?.includes('left')) // Optionally close the toast when clicked
       })
     }
   }

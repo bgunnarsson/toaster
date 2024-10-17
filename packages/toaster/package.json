@@ -1,6 +1,6 @@
 {
   "name": "@bgunnarsson/toaster",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Toast message javascript library",
   "type": "module",
   "access": "private",
@@ -28,5 +28,8 @@
     "@rollup/plugin-node-resolve": "^15.3.0",
     "@rollup/plugin-terser": "^0.4.4",
     "rollup": "^4.24.0"
+  },
+  "dependencies": {
+    "rollup-plugin-gzip": "^4.0.1"
   }
 }
