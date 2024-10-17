@@ -28,7 +28,7 @@ With sensible defaults for quick setup, you can configure Toaster to match your 
 
 ## Installation
 
-Install the `toaster` library using npm:
+Install the `toaster` library using the package manager of your choice.
 
 ```bash
 pnpm i @bgunnarsson/toaster
