@@ -13,121 +13,123 @@ With sensible defaults for quick setup, you can configure Toaster to match your 
 
 ---
 
-| **Original Size** | **GZIP Size** | **ZIP Size** |
-|-------------------|---------------|--------------|
-| 2.9 KB            | 1.15 KB       | 1.14 KB      |
+## Features
 
+- **Minimal and customizable**: No forced styles; bring your own CSS for total control over the appearance.
+- **Flexible positioning**: Toasts can appear at `top left`, `top right`, `bottom left`, or `bottom right` of the screen, with additional support for customizable offsets.
+- **HTML content support**: Display both simple text notifications or rich HTML content inside toasts.
+- **Clickability**: Make the entire toast clickable if required.
+- **Pause on hover**: Auto-dismiss timers can pause while the user hovers over a toast.
+- **Persistent toasts**: Keep toasts visible indefinitely with the `persist` option.
+- **Lightweight and dependency-free**: No external libraries required.
+- **Custom events**: Listen for custom events like `toaster:added` and `toaster:removed`.
+  
+---
 
-### `Key features`
+## Installation
 
-- **Minimal and customizable**: No predefined styles are enforced. You can bring your own CSS (BYOCSS) and fully control the appearance and layout of your toasts.
-- **Flexible positioning**: Easily set the toast's position on the screen (`top left`, `top right`, `bottom left`, or `bottom right`) with customizable offsets.
-- **Sensible defaults**: Sensible defaults are provided for quick setup (e.g., position, duration), but all options are configurable to meet your needs.
-- **Full HTML support**: Supports both plain text and HTML content, giving you flexibility to display anything from simple messages to rich, styled markup.
-- **Clickability**: Optional `clickable` setting allows you to make toasts interactive for dismissals or actions.
-- **Automatic dismissal**: Toasts are automatically dismissed after the specified duration, or you can set them to remain indefinitely until user interaction.
-- **Lightweight and dependency-free**: No external libraries are required. It’s a pure vanilla JavaScript solution.
-- **Smooth animations**: Built-in support for animations, with the ability to customize the entry and exit transitions via CSS.
-- **Multiple toast handling**: Each toast is managed independently, ensuring smooth operation when multiple toasts are created at the same time.
+Install the `toaster` library using npm:
 
+```bash
+pnpm i @bgunnarsson/toaster
 
+yarn @bgunnarsson/toaster
 
-### `Examples`
-
-```javascript
-const toaster = new Toaster({
-  duration: 3000,
-  clickable: true,
-})
+npm i @bgunnarsson/toaster
 ```
-
-```javascript
-toaster.createToast({
-  content: 'Success',
-  class: 'toaster__toast--success'
-})
-```
-
-```javascript
-toaster.createToast({
-  content: 'Error',
-  class: 'toaster__toast--error'
-})
-```
-
-```javascript
-toaster.createToast({
-  content: `
-    <div>
-      <h3>Bad weather ahead</h3>
-      <p>Winds as high as 50 m/s are forcasted.</p>
-    </div>
-  `,
-})
-```
-
-## Documentation
-
-
-### `HTML Structure`
-
-This is the HTML structure that is created for you.
-
-`<class>` refers to the `options.class` property.
-
-```html
-<div class="toaster <class>">
-  <div class="toaster__toast <class>__toast"> <!-- div or button -->
-    <!-- Content-->
-  </div>
-</div>
-```
-
-### `Options`
-
-| **Option**  | **Type**   | **Default Value** |
-|-------------|------------|-------------------|
-| `position`  | `string`   | `top right`       |
-| `duration`  | `number`   | `3000`            |
-| `clickable` | `boolean`  | `false`           |
-| `offset`    | `object`   | `{ x: 0, y: 0 }`  |
-| `class`     | `string`   |                   |
 
 ---
 
-#### `Position`
+## Usage
 
-Controls the position of the toaster root element on the screen.
+### Basic Example
 
-The available values are:
+```javascript
+import Toaster from 'toaster';
 
-```
-top left
-top right
-bottom left
-bottom right
-```
+const toaster = new Toaster({
+  position: 'bottom right',
+  duration: 3000,
+  clickable: true,
+  offset: { x: 10, y: 20 },
+  customClass: 'my-toast',
+  pause: true,
+  stay: false
+});
 
-#### `Duration`
-
-Controls how long a single toast is displayed before it is automatically dismissed. The default value is `3000` milliseconds (3 seconds).
-
-#### `Clickable`
-
-Defines whether the toast is dismissible by clicking on it. When set to `true`, users can manually dismiss the toast by clicking on it. If `false`, the toast will be dismissed automatically after the `duration` has passed.
-
-#### `Offset`
-
-An object specifying the X and Y offset of the toaster root element from its default position. This is useful for fine-tuning the exact position of the toasts on the screen. Example:
-
-```js
-{
-  offset: { x: 10, y: 20 }
-}
+toaster.createToast({
+  content: '<p>Welcome to Toaster!</p>',
+  persist: false  // If true, the toast stays on screen indefinitely
+});
 ```
 
-This would move the toaster 10 pixels from the left or right and 20 pixels from the top or bottom, depending on the position setting.
+---
 
-#### `Class`
+## Options
 
-Specifies the CSS class name for the toaster root element. This allows you to customize the appearance of the toaster and its toasts by applying your own styles.
+| **Option**    | **Type**   | **Default Value** |
+|---------------|------------|-------------------|
+| `position`    | `string`   | `bottom right`    |
+| `duration`    | `number`   | `3000`            |
+| `clickable`   | `boolean`  | `false`           |
+| `offset`      | `object`   | `{ x: 0, y: 0 }`  |
+| `customClass` | `string`   | `""`              |
+| `pause`       | `boolean`  | `true`            |
+| `stay`        | `boolean`  | `false`           |
+
+### Position
+
+Defines where on the screen the toast will be placed. Options include:
+
+- `top left`
+- `top right`
+- `bottom left`
+- `bottom right`
+
+### Duration
+
+Controls how long the toast will remain on the screen before it is automatically dismissed. A value of `0` will keep the toast visible indefinitely unless `stay` is set to `true`.
+
+### Clickable
+
+Defines whether the toast is dismissible by clicking on it.
+
+### Offset
+
+Specifies the X and Y offsets for fine-tuning the toast's placement on the screen.
+
+### Custom Class
+
+Adds a custom class to the toast for additional styling.
+
+### Pause
+
+When `true`, the toast's auto-dismiss timer will pause when the user hovers over it.
+
+### Stay
+
+If `true`, the toast will stay visible indefinitely until manually removed.
+
+---
+
+## Events
+
+### `toaster:added`
+
+Dispatched when a new toast is added.
+
+```javascript
+document.addEventListener('toaster:added', (event) => {
+  console.log('Toast added:', event.detail);
+});
+```
+
+### `toaster:removed`
+
+Dispatched when a toast is removed.
+
+```javascript
+document.addEventListener('toaster:removed', (event) => {
+  console.log('Toast removed:', event.detail);
+});
+```

@@ -6,7 +6,6 @@
  * @property {Object} [offset={x: 0, y: 0}] - The offset in pixels from the edges of the screen.
  * @property {string} [customClass=""] - A custom CSS class applied to the toaster.
  * @property {boolean} [pause=true] - Whether the auto-close timeout should pause when hovering.
- * @property {boolean} [stay=false] - If true, the toast stays on the screen indefinitely.
  */
 
 /**
