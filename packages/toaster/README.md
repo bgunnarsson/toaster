@@ -1,5 +1,6 @@
 # @bgunnarsson/toaster
 
+### `Ristavél = Toaster in Icelandic.`
 
 The easiest toast library ever. Nothing you don't need, everything you **_do_** need.
 
@@ -11,6 +12,11 @@ With sensible defaults for quick setup, you can configure Toaster to match your 
 
 
 ---
+
+| **Original Size** | **GZIP Size** | **ZIP Size** |
+|-------------------|---------------|--------------|
+| 2.9 KB            | 1.15 KB       | 1.14 KB      |
+
 
 ### `Key features`
 
@@ -71,7 +77,7 @@ This is the HTML structure that is created for you.
 
 ```html
 <div class="toaster <class>">
-  <div class="toaster__toast <class>__toast">
+  <div class="toaster__toast <class>__toast"> <!-- div or button -->
     <!-- Content-->
   </div>
 </div>
@@ -87,5 +93,41 @@ This is the HTML structure that is created for you.
 | `offset`    | `object`   | `{ x: 0, y: 0 }`  |
 | `class`     | `string`   |                   |
 
+---
 
-#### `Subtitle`
+#### `Position`
+
+Controls the position of the toaster root element on the screen.
+
+The available values are:
+
+```
+top left
+top right
+bottom left
+bottom right
+```
+
+#### `Duration`
+
+Controls how long a single toast is displayed before it is automatically dismissed. The default value is `3000` milliseconds (3 seconds).
+
+#### `Clickable`
+
+Defines whether the toast is dismissible by clicking on it. When set to `true`, users can manually dismiss the toast by clicking on it. If `false`, the toast will be dismissed automatically after the `duration` has passed.
+
+#### `Offset`
+
+An object specifying the X and Y offset of the toaster root element from its default position. This is useful for fine-tuning the exact position of the toasts on the screen. Example:
+
+```js
+{
+  offset: { x: 10, y: 20 }
+}
+```
+
+This would move the toaster 10 pixels from the left or right and 20 pixels from the top or bottom, depending on the position setting.
+
+#### `Class`
+
+Specifies the CSS class name for the toaster root element. This allows you to customize the appearance of the toaster and its toasts by applying your own styles.

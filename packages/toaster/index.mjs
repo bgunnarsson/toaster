@@ -34,10 +34,20 @@ export default function Toaster(options) {
   Object.assign(rootDiv.style, positionStyles[this.options.position])
   this.vars.rootElement.appendChild(rootDiv)
 
+  const closeSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M4 4 L20 20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M20 4 L4 20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`
+
   this.createToast = (text) => {
     const div = document.createElement('div')
     div.className = 'toaster__toast'
+
+    // Create the close button
+    const closeButton = document.createElement('button')
+    closeButton.className = 'toaster__close'
+    closeButton.innerHTML = closeSvg // This adds a '×' symbol
+
+    // Add the text and the close button to the toast
     div.innerHTML = text
+    div.appendChild(closeButton)
     div.style.transition = 'transform 0.3s ease-in-out'
 
     // Determine the starting position for the animation based on this.options.position
@@ -48,22 +58,30 @@ export default function Toaster(options) {
     const toasterRoot = document.querySelector('.toaster')
     toasterRoot.insertBefore(div, toasterRoot.firstChild)
 
-    // Access and update styles after appending to the DOM
+    // Slide-in animation
     requestAnimationFrame(() => {
-      // This allows the browser to paint the initial off-screen position before applying the next transform
       div.style.transform = 'translateX(0)' // Slide in
     })
 
-    // Set a timeout for the toast to slide out and then remove it
+    // Close button click handler
+    closeButton.addEventListener('click', () => {
+      closeToast(div, isLeft)
+    })
+
+    // Set a timeout for automatic removal
     setTimeout(() => {
-      // Slide out based on the original position
-      div.style.transform = isLeft ? 'translateX(-100%)' : 'translateX(100%)' // Slide out of view
+      closeToast(div, isLeft)
+    }, this.options.duration) // Wait for the specified duration
+
+    // Function to handle closing the toast
+    const closeToast = (element, isLeft) => {
+      element.style.transform = isLeft ? 'translateX(-100%)' : 'translateX(100%)' // Slide out of view
 
       // Listen for the end of the transition to remove the toast
-      div.addEventListener('transitionend', () => {
-        div.remove() // Remove the toast from the DOM
+      element.addEventListener('transitionend', () => {
+        element.remove() // Remove the toast from the DOM
       })
-    }, this.options.duration) // Wait for the specified duration before sliding out
+    }
 
     // Optionally, add additional styles or actions here
     console.log('Toast created:', div)
