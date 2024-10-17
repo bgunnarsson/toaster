@@ -44,19 +44,15 @@ npm i @bgunnarsson/toaster
 
 ### Basic Usage
 
-[Documentation](#documentation) is further down.
-
 ```javascript
 import Toaster from 'toaster';
 
 const toaster = new Toaster({ duration: 5000 });
 
-toaster.createToast({
+toaster.toast({
   content: '<p>Welcome to Toaster!</p>'
 });
 ```
-
-# Documentation
 
 #### `Initialization`
 nitialize the Toaster class with custom options for positioning, duration, and more.
