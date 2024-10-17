@@ -83,11 +83,11 @@ Defines where on the screen the toast will be placed. Options include:
 - `bottom left`
 - `bottom right`
 
-### Duration
+### Toast.Duration
 
-Controls how long the toast will remain on the screen before it is automatically dismissed. A value of `0` will keep the toast visible indefinitely unless `stay` is set to `true`.
+Controls how long the toast will remain on the screen before it is automatically dismissed. A value of `0` will keep the toast visible indefinitely unless `persist` is set to `true`.
 
-### Clickable
+### Toast.Clickable
 
 Defines whether the toast is dismissible by clicking on it.
 
@@ -95,15 +95,15 @@ Defines whether the toast is dismissible by clicking on it.
 
 Specifies the X and Y offsets for fine-tuning the toast's placement on the screen.
 
-### Custom Class
+### Coast.CustomClass
 
 Adds a custom class to the toast for additional styling.
 
-### Pause
+### Toast.Pause
 
 When `true`, the toast's auto-dismiss timer will pause when the user hovers over it.
 
-### Stay
+### Toast.Persist
 
 If `true`, the toast will stay visible indefinitely until manually removed.
 

@@ -32,7 +32,7 @@ const toastTester = {
     const closeButton = '<span class="toaster-bg__close">[ x ]</span>'
 
     button?.addEventListener('click', () => {
-      toaster.toast({ content: 'Text toast' })
+      toaster.toast({ content: 'Text toast', clickable: false })
     })
 
     button2?.addEventListener('click', () => {
@@ -45,7 +45,6 @@ const toastTester = {
 
           ${closeButton}
       `,
-        persist: true,
       })
     })
 
