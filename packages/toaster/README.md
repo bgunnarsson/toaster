@@ -1,4 +1,4 @@
-# @bgunnarsson/toaster - JavaScript Notification Library
+# @bgunnarsson/toaster
 
 ### `Toaster = Ristavél in Icelandic.`
 
