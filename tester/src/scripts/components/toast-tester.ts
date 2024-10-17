@@ -6,6 +6,10 @@ const toastTester = {
     const theToaster = new Toaster({
       duration: 3000,
       clickable: true,
+      offset: {
+        x: 40,
+        y: 40,
+      },
     })
 
     const button = document.querySelector('.toast-button')
