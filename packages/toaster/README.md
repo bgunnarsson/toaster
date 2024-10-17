@@ -65,12 +65,12 @@ toaster.createToast({
 
 ### `HTML Structure`
 
-This is the HTML structure that is created.
+This is the HTML structure that is created for you.
 
 `<class>` refers to the `options.class` property.
 
 ```html
-<div class="toaster-root <class>">
+<div class="toaster <class>">
   <div class="toaster__toast <class>__toast">
     <!-- Content-->
   </div>
@@ -88,9 +88,4 @@ This is the HTML structure that is created.
 | `class`     | `string`   |                   |
 
 
-#### `Default classes`
-
-```
-.toaster {}
-.toaster__toast {}
-```
+#### `Subtitle`
