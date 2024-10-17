@@ -155,7 +155,7 @@ const toaster = new Toaster({
 You can easily use the library to display dynamic content inside toasts, including custom HTML and CSS classes for styling.
 
 <details>
-<summary>Code example</summary>
+<summary>Code</summary>
 
 ```
 // Create a toast with rich HTML content
@@ -206,7 +206,7 @@ toaster.toast({
 Create toasts that pause their dismissal countdown when the user hovers over them and resumes when the user moves their mouse away.
 
 <details>
-<summary></summary>
+<summary>Code</summary>
 
 ```
 const toaster = new Toaster({
@@ -229,7 +229,7 @@ toaster.toast({
 By making the toast clickable, you can attach custom behavior, such as redirecting the user to a different page or showing more information.
 
 <details>
-<summary></summary>
+<summary>Code</summary>
 
 ```
 const toaster = new Toaster({
@@ -259,7 +259,7 @@ document.addEventListener('toaster:added', (event) => {
 You can use custom events (toaster:added, toaster:removed) to track when toasts are added or removed, and react accordingly (e.g., logging or updating a UI component).
 
 <details>
-<summary></summary>
+<summary>Code</summary>
 
 ```
 const toaster = new Toaster({
@@ -282,14 +282,6 @@ toaster.toast({ content: 'Toast 1' });
 toaster.toast({ content: 'Toast 2' });
 toaster.toast({ content: 'Toast 3' });
 
-```
-
-</details>
-
-<details>
-<summary></summary>
-
-```
 ```
 
 </details>
