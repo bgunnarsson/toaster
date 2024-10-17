@@ -42,7 +42,9 @@ npm i @bgunnarsson/toaster
 
 ## Usage
 
-### Basic Example
+### Basic Usage
+
+[Advanced usage](#advanced-usage) is further down.
 
 ```javascript
 import Toaster from 'toaster';
@@ -133,3 +135,45 @@ document.addEventListener('toaster:removed', (event) => {
   console.log('Toast removed:', event.detail);
 });
 ```
+
+
+# Advanced usage
+
+### Toast with Dynamic HTML Content and Custom Styling
+
+You can easily use the library to display dynamic content inside toasts, including custom HTML and CSS classes for styling.
+
+<details>
+<summary>Code example</summary>
+
+```
+const toaster = new Toaster({
+  position: 'top right',
+  duration: 5000,           // Toast will disappear after 5 seconds
+  clickable: false,         // Toast is not clickable
+  offset: { x: 15, y: 20 }, // Custom offset
+  customClass: 'my-toast',  // Custom CSS class for additional styling
+  pause: true               // Pause the toast when hovered
+});
+
+// Create a toast with rich HTML content
+toaster.toast({
+  content: `
+    <div class="toast-header">
+      <strong class="mr-auto">Success!</strong>
+      <small>Just now</small>
+    </div>
+    <div class="toast-body">
+      Your settings have been saved successfully.
+    </div>
+  `,
+  persist: false
+});
+
+```
+
+</details>
+
+
+
+### 
