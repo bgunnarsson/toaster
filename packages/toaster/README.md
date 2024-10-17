@@ -1,9 +1,9 @@
 # @bgunnarsson/toaster
 
-![Toaster Logo](toaster-logo.webp)
 
+The easiest toast library ever. Nothing you don't need, everything you **_do_** need.
 
-The easiest toast library ever. Nothing you don't need, everything you do need.
+---
 
 Toaster is a lightweight, dependency-free JavaScript library for creating toast notifications with ease. It’s designed to give developers full control over the look, feel, and behavior of toasts, without enforcing any styles or unnecessary functionality. Whether you're displaying simple text alerts or rich HTML content, Toaster provides a flexible and customizable solution that fits right into any project.
 
