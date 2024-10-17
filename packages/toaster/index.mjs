@@ -1,6 +1,6 @@
 // constructor function
 export default function Toaster(options) {
-  if (document.querySelector('.toaster-root')) {
+  if (document.querySelector('.toaster')) {
     console.warn('[Toaster] Only one instance of Toster allowed at a time. Disregarding second activation.')
     return
   }
@@ -21,7 +21,7 @@ export default function Toaster(options) {
   console.log('[Toaster] Options', this.options)
 
   const rootDiv = document.createElement('div')
-  rootDiv.className = 'toaster-root'
+  rootDiv.className = 'toaster'
   rootDiv.style.position = 'fixed'
 
   const positionStyles = {
@@ -36,7 +36,7 @@ export default function Toaster(options) {
 
   this.createToast = (text) => {
     const div = document.createElement('div')
-    div.className = 'toaster'
+    div.className = 'toaster__toast'
     div.innerHTML = text
     div.style.transition = 'transform 0.3s ease-in-out'
 
@@ -45,7 +45,7 @@ export default function Toaster(options) {
     div.style.transform = isLeft ? 'translateX(-100%)' : 'translateX(100%)' // Start off-screen (left or right based on position)
 
     // Append to the DOM
-    const toasterRoot = document.querySelector('.toaster-root')
+    const toasterRoot = document.querySelector('.toaster')
     toasterRoot.insertBefore(div, toasterRoot.firstChild)
 
     // Access and update styles after appending to the DOM
