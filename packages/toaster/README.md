@@ -54,11 +54,18 @@ npm i @bgunnarsson/toaster
 | `offset`        | `object`  | `{ x: 0, y: 0 }` |
 | `customClass`   | `string`  |                  |
 
-### Basic Usage
+### `Importing`
+Since this package includes both `CJS` and `ESM` files it will work with both `require` and `import`.
+
+```
+import Toaster from '@bgunnarsson/toaster"
+
+const Toaster = require('@bgunnarsson/toaster')
+```
+
+### `Basic Usage`
 
 ```javascript
-import Toaster from 'toaster';
-
 const toaster = new Toaster({ duration: 5000 });
 
 toaster.toast({
