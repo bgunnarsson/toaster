@@ -11,7 +11,7 @@
     "dist": "pnpm publish"
   },
   "files": [
-    "index.mjs",
+    "dist",
     "package.json",
     "README.md"
   ],
