@@ -33,34 +33,56 @@ const toaster = new Toaster({
   duration: 3000,
   clickable: true,
 })
+```
 
+```javascript
 toaster.createToast({
-  content: 'Example text',
+  content: 'Success',
+  class: 'toaster__toast--success'
 })
+```
 
+```javascript
 toaster.createToast({
-  content: '<p>Example markup</p>',
+  content: 'Error',
+  class: 'toaster__toast--error'
 })
+```
 
+```javascript
 toaster.createToast({
   content: `
     <div>
-      <h3>Toast</h3>
-      <p>Successfully created this toast.</p>
+      <h3>Bad weather ahead</h3>
+      <p>Winds as high as 50 m/s are forcasted.</p>
     </div>
   `,
 })
-
 ```
 
-### `Documentation`
+## Documentation
 
-This is the HTML structure that is created:
+
+### `HTML Structure`
+
+This is the HTML structure that is created
+
+`<class>` refers to the `options.class` property
 
 ```html
-<div class="toaster-root">
-  <div class="toaster__toast">
+<div class="toaster-root <class>">
+  <div class="toaster__toast <class>__toast">
     <!-- Content-->
   </div>
 </div>
 ```
+
+### `Options`
+
+| **Option**  | **Type**   | **Default Value** |
+|-------------|------------|-------------------|
+| `position`  | `string`   | `'top right'`     |
+| `duration`  | `number`   | `3000`            |
+| `clickable` | `boolean`  | `false`           |
+| `offset`    | `object`   | `{ x: 0, y: 0 }`  |
+| `class`     | `string`   | `'toaster'`       |
