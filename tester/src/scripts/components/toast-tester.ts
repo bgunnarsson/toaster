@@ -29,7 +29,7 @@ const toastTester = {
     const button2 = document.querySelector('.toast-button2')
     const button3 = document.querySelector('.toast-button3')
 
-    const closeButton = '<span class="toaster-bg__close">[ x ]</span>'
+    const closeButton = '<span class="toaster-bg__close">[x]</span>'
 
     button?.addEventListener('click', () => {
       toaster.toast({ content: 'Text toast', clickable: false })
@@ -45,6 +45,7 @@ const toastTester = {
 
           ${closeButton}
       `,
+        persist: true,
       })
     })
 

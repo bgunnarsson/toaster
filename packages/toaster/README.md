@@ -44,7 +44,7 @@ npm i @bgunnarsson/toaster
 
 ### Basic Usage
 
-[Advanced usage](#advanced-usage) is further down.
+[Documentation](#documentation) is further down.
 
 ```javascript
 import Toaster from 'toaster';
@@ -56,4 +56,89 @@ toaster.createToast({
 });
 ```
 
-More coming soon!
+# Documentation
+
+#### `Initialization`
+nitialize the Toaster class with custom options for positioning, duration, and more.
+
+
+<details>
+<summary>Code</summary>
+
+```javascript
+const toaster = new Toaster({
+  position: 'bottom right',  // Position the toasts at the bottom-right corner.
+  offset: { x: 20, y: 20 },  // Offset the toast from the bottom-right by 20px.
+  customClass: 'my-toaster', // Add a custom class to the toasts.
+});
+```
+
+</details>
+
+
+#### `Creating a Toast`
+Use the toast() method to create and display a toast notification.
+
+<details>
+<summary>Code</summary>
+
+```javascript
+toaster.toast({
+  content: '<p>Hello, this is a toast!</p>',  // Display HTML content.
+  duration: 3000,  // Auto-dismiss the toast after 3 seconds.
+  clickable: true, // Make the toast clickable to dismiss.
+});
+```
+
+</details>
+
+#### `Manually Dismissing a Toast`
+You can dismiss the current toast programmatically by calling the dismiss() method.
+
+
+<details>
+<summary>Code</summary>
+
+```javascript
+toaster.dismiss()
+```
+
+</details>
+
+#### `Persistent Toast`
+Toasts can be made persistent by setting the persist option to true. Persistent toasts stay on screen until manually dismissed.
+
+
+<details>
+<summary>Code</summary>
+
+```javascript
+toaster.toast({
+  content: 'Persistent toast message!',
+  persist: true, // Toast will stay until dismissed manually.
+});
+```
+
+</details>
+
+
+#### `Events`
+The library dispatches custom events when a toast is added or removed:
+
+* `toaster:added`Fired when a new toast is added.
+* `toaster::removed` Fired when a toast is removed from the DOM.
+
+<details>
+<summary>Code</summary>
+
+```javascript
+document.addEventListener('toaster:added', (event) => {
+  console.log('Toast added:', event.detail);
+});
+
+document.addEventListener('toaster:removed', (event) => {
+  console.log('Toast removed:', event.detail);
+});
+```
+
+</details>

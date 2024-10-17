@@ -135,5 +135,19 @@ export default function Toaster(options) {
         closeToast(div, position?.includes('left')) // Optionally close the toast when clicked
       })
     }
+
+    // Store the toast element in a way to access it for manual dismissal
+    this.currentToast = div
+  }
+
+  /**
+   * Dismiss the current toast manually by calling this function.
+   * It checks if there is an active toast stored in `this.currentToast` and,
+   * if present, dismisses it by sliding it out of view.
+   */
+  this.dismiss = () => {
+    if (this.currentToast) {
+      closeToast(this.currentToast, position.includes('left'))
+    }
   }
 }
