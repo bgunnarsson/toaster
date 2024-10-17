@@ -1,6 +1,6 @@
 # @bgunnarsson/toaster - JavaScript Notification Library
 
-### `Ristavél = Toaster in Icelandic.`
+### `Toaster = Ristavél in Icelandic.`
 
 ---
 
@@ -8,11 +8,11 @@ The easiest toast library ever. Nothing you don't need, everything you **_do_** 
 
 ---
 
-Welcome to **@bgunnarsson/Toaster**, the lightweight, dependency-free JavaScript library that gives you full control over your notifications—crispy on the outside, customizable on the inside. Whether you're looking to pop up simple text alerts or serve up rich HTML content, Toaster’s got your back, no unnecessary fluff, and no burnt toast.
+**@bgunnarsson/Toaster**, the lightweight, dependency-free JavaScript library that gives you full control over your notifications—crispy on the outside, customizable on the inside. Whether you're looking to pop up simple text alerts or serve up rich HTML content, This package got your back, no unnecessary fluff, and no burnt toast.
 
-Designed with developers in mind, **@bgunnarsson/Toaster** lets you take the wheel. No enforced styles, no bloated features, just a clean, flexible solution that slides perfectly into any project. Want to position your toast in the top right? Bottom left? Sprinkle it with custom classes and your own CSS? Go for it. We give you the freedom to create toast notifications that look and behave exactly how you want them to.
+Designed with developers in mind, this package lets you take the wheel. No enforced styles, no bloated features, just a clean, flexible solution that slides perfectly into any project. Want to position your toast in the top right? Bottom left? Sprinkle it with custom classes and your own CSS? Go for it. This package gives you the freedom to create toast notifications that look and behave exactly how you want them to.
 
-With sensible defaults for quick setup, **@bgunnarsson/Toaster** is the perfect sidekick—whether you’re in a hurry or have time to fine-tune every last detail. Simple, powerful, and fully customizable—because who doesn't love a perfectly timed toast?
+With sensible defaults for quick setup, this package is the perfect sidekick—whether you’re in a hurry or have time to fine-tune every last detail. Simple, powerful, and fully customizable—because who doesn't love a perfectly timed toast?
 
 ---
 
@@ -44,6 +44,16 @@ npm i @bgunnarsson/toaster
 
 ## Documentation
 
+### `Options`
+
+#### `ToasterOptions`
+
+| **Option**      | **Type**  | **Default**      |
+|-----------------|-----------|------------------|
+| `position`      | `string`  | `bottom right`   |
+| `offset`        | `object`  | `{ x: 0, y: 0 }` |
+| `customClass`   | `string`  |                  |
+
 ### Basic Usage
 
 ```javascript
@@ -59,7 +69,6 @@ toaster.toast({
 #### `Initialization`
 Initialize the Toaster class with custom options for positioning, duration, and more.
 
-
 <details>
 <summary>Code</summary>
 
@@ -72,6 +81,16 @@ const toaster = new Toaster({
 ```
 
 </details>
+
+
+#### `.toast()`
+| **Option**      | **Type**  | **Default**      |
+|-----------------|-----------|------------------|
+| `content`       | `string`  |                  |
+| `persist`       | `boolean` | `false`          |
+| `duration`      | `number`  | `3000`           |
+| `pause`         | `boolean` | `true`           |
+| `clickable`     | `boolean` | `true`           |
 
 
 #### `Creating a Toast`
