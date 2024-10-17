@@ -55,7 +55,7 @@ toaster.toast({
 ```
 
 #### `Initialization`
-nitialize the Toaster class with custom options for positioning, duration, and more.
+Initialize the Toaster class with custom options for positioning, duration, and more.
 
 
 <details>
