@@ -5,8 +5,9 @@
   "scripts": {
     "build": "pnpm tb & pnpm --filter tester build",
     "dev": "pnpm --filter tester dev",
-    "td": "pnpm --filter @bgunnarsson/toaster dist",
-    "tb": "pnpm --filter @bgunnarsson/toaster build"
+    "dist": "pnpm --filter @bgunnarsson/toaster dist",
+    "tb": "pnpm --filter @bgunnarsson/toaster build",
+    "git": "git add . && git commit -m update && git push origin main"
   },
   "pnpm": {
     "peerDependencyRules": {
