@@ -3,13 +3,25 @@ import Toaster from '@bgunnarsson/toaster'
 
 const toastTester = {
   init() {
-    const theToaster = new Toaster({
-      duration: 3000,
+    const toaster = new Toaster({
+      position: 'bottom right',
+      duration: 1000,
       clickable: true,
+      customClass: 'toaster-bg',
       offset: {
-        x: 40,
-        y: 40,
+        x: 20,
+        y: 20,
       },
+    })
+
+    document.addEventListener('toaster:added', (event) => {
+      // @ts-ignore
+      console.log('Toast added!', event.detail)
+    })
+
+    document.addEventListener('toaster:removed', (event) => {
+      // @ts-ignore
+      console.log('Toast removed!', event.detail)
     })
 
     const button = document.querySelector('.toast-button')
@@ -17,13 +29,13 @@ const toastTester = {
     const button3 = document.querySelector('.toast-button3')
 
     button?.addEventListener('click', () => {
-      theToaster.createToast({ content: 'Tast 1' })
+      toaster.toast({ content: 'Tast 1' })
     })
     button2?.addEventListener('click', () => {
-      theToaster.createToast({ content: 'Tast 2' })
+      toaster.toast({ content: 'Tast 2', persist: true })
     })
     button3?.addEventListener('click', () => {
-      theToaster.createToast({ content: '<p class="Hellooo">Test 3</p>' })
+      toaster.toast({ content: '<p class="Hellooo">Test 3</p>' })
     })
   },
 }

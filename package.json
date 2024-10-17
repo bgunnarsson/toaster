@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "build": "pnpm --filter tester build",
-    "dev": "pnpm --filter tester dev"
+    "dev": "pnpm --filter tester dev",
+    "dist": "pnpm --filter @bgunnarsson/toaster dist"
   },
   "pnpm": {
     "peerDependencyRules": {

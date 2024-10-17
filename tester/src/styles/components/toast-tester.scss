@@ -1,0 +1,41 @@
+$toast-offset: rem(20);
+
+.toaster-bg {
+  gap: rem(10);
+
+  @include mqBetween(phone-xs, phone-m) {
+    width: calc(100% - #{$toast-offset * 2})
+  }
+
+  @include mq(tablet) {
+    width: 70%;
+  }
+
+  @include mq(desktop-xs) {
+    width: 50%;
+  }
+
+  @include mq(desktop-m) {
+    width: 30%;
+  }
+}
+
+.toaster-bg__toast {
+  background: green;
+  color: #fff;
+
+  padding: rem(40);
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  // width: rem(500);
+  max-width: calc(100% - #{$toast-offset});
+  border-radius: rem(20);
+}
+
+.toaster-bg__close {
+  opacity: 0.6;
+  transition: opacity .3s ease-in-out;
+}
