@@ -3,11 +3,6 @@
 @use 'global';
 
 
-body {
-  background: vars.$background;
-  color: vars.$text;
-}
-
 .button {
   position: relative;
   display: inline-flex;
@@ -33,8 +28,11 @@ body {
   border-width: 2px;
   border-color: transparent;
 
-  background: #fff;
-  color: #000;
+  // background: #fff;
+  // color: #000;
+
+  background: vars.$primary;
+  color: #fff;
 
   // ! this helps with getting the correct event.target in javascript clicks.
   > * {
@@ -51,7 +49,87 @@ body {
   }
 }
 
+// .my-toaster__toast {
+//   color: #000;
+//   background: #fff;
+// }
+
+.toaster-buttons {
+  display: flex;
+  flex-direction: column;
+  max-width: 200px;
+  gap: 12px;
+}
+
+.my-toaster {
+  gap: 12px;
+}
+
 .my-toaster__toast {
-  color: #000;
-  background: #fff;
+  display: block;
+  position: relative;
+  font-family: "Arial", sans-serif;
+  overflow: hidden;
+
+  border-radius: 8px;
+  font-size: 14px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  min-width: 200px;
+
+  // border-radius: 4px;
+  // box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.my-toaster__content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 12px 16px;
+}
+
+.my-toaster__toast--default {
+  background-color: #64748b; /* Tailwind slate-500 */
+}
+
+.my-toaster__toast--success {
+  background-color: #10b981; /* Tailwind green-500 */
+}
+
+.my-toaster__toast--error {
+  background-color: #ef4444; /* Tailwind red-500 */
+}
+
+.my-toaster__toast--warning {
+  background-color: #f59e0b; /* Tailwind amber-500 */
+}
+
+.my-toaster__toast--info {
+  background-color: #3b82f6; /* Tailwind blue-500 */
+}
+
+.my-toaster__toast-icon {
+  margin-right: 12px;
+}
+
+
+.my-toaster__toast-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }

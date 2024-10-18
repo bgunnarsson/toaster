@@ -183,3 +183,23 @@ document.addEventListener('toaster:removed', (event) => {
 ```
 
 </details>
+
+# Framework/Library Support
+
+At the time of writing `(18.10.2024)`, this package has been tested for use in:
+
+* Rustikus
+* TypeScript
+* JavaScript
+* React - `@bgunnarsson/toaster/react`
+* Astro
+* Svelte
+* Vue
+
+Upcoming tests:
+
+* Lit
+* Preact
+* Qwuik
+* Angular
+* Alpine.js

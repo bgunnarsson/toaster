@@ -10,9 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@bgunnarsson/toaster": "workspace:*",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "@bgunnarsson/toaster": "workspace:*",
+    "react-router-dom": "^6.27.0",
     "styles": "workspace:*"
   },
   "devDependencies": {

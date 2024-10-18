@@ -1,4 +1,48 @@
-// Import the Toaster library
+---
+import Layout from '../layouts/Layout.astro';
+
+import 'styles'; // Assuming you have custom styles for the toasts
+---
+
+<Layout title="Astro - @bgunnarsson/toaster">
+	<main>
+		<div class="toaster-buttons">
+      <button
+        class="button button--default"
+        type="button"
+      >
+        Default
+      </button>
+      <button
+        class="button button--success"
+        type="button"
+      >
+        Success
+      </button>
+      <button
+        class="button button--error"
+        type="button"
+      >
+        Error
+      </button>
+      <button
+        class="button button--warning"
+        type="button"
+      >
+        Warning
+      </button>
+      <button
+        class="button button--info"
+        type="button"
+      >
+        Info
+      </button>
+    </div>
+	</main>
+</Layout>
+
+
+<script>
 import Toaster from '@bgunnarsson/toaster'
 
 // Initialize the Toaster
@@ -54,3 +98,4 @@ button5.addEventListener('click', () => {
     duration: 3000, // 3 seconds
   })
 })
+</script>

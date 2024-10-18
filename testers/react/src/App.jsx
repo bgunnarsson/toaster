@@ -1,20 +1,21 @@
-import useToaster from '@bgunnarsson/toaster/react'
+import React from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Basic from './Basic'
+import Advanced from './Advanced'
+import { ToasterProvider } from '@bgunnarsson/toaster/react'
 
 import 'styles'
 
 function App() {
-  const { toast } = useToaster({
-    position: 'bottom right',
-    offset: { x: 20, y: 20 },
-    customClass: 'my-toaster',
-  })
-
   return (
-    <>
-      <button type="button" className="button" onClick={() => toast({ content: 'This is a text toast!' })}>
-        Show Toast
-      </button>
-    </>
+    <ToasterProvider options={{ position: 'bottom right', offset: { x: 20, y: 20 }, customClass: 'my-toaster' }}>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Basic />} />
+          <Route path="advanced" element={<Advanced />} />
+        </Routes>
+      </Router>
+    </ToasterProvider>
   )
 }
 

@@ -8,7 +8,7 @@ For options refer to the options section in the [main readme file](../README.md#
 
 Import the hook.
 ```javascript
-import useToaster from '@bgunnarssom/toaster/react';
+import { useToaster } from '@bgunnarssom/toaster/react';
 ```
 
 Initialize the toaster with options

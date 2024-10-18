@@ -1,32 +1,34 @@
-import { useEffect, useRef } from 'react'
-import Toaster from '@bgunnarsson/toaster'
+import React, { createContext, useContext, useEffect, useRef } from 'react'
+import Toaster from '@bgunnarsson/toaster' // Ensure this is correctly pointing to the main toaster class
 
-/**
- * A React hook that provides access to the Toaster instance.
- * @param {Object} options - Options to initialize the Toaster.
- * @returns {Object} An object containing the toast and dismiss methods.
- */
+const ToasterContext = createContext(null)
+
+let globalToasterInstance = null // Singleton instance stored outside the component lifecycle
+
 const useToaster = (options) => {
-  const toasterRef = useRef(null)
+  const toasterRef = useRef(globalToasterInstance) // Hold reference to the singleton
 
   useEffect(() => {
-    // Initialize the Toaster only once
-    if (!toasterRef.current) {
-      toasterRef.current = new Toaster(options)
+    if (!globalToasterInstance) {
+      globalToasterInstance = new Toaster(options)
+      toasterRef.current = globalToasterInstance
     }
-    return () => {
-      // Optional cleanup if needed
-    }
-  }, [options])
+    // No reinitialization needed even if options change after initialization
+  }, []) // Remove dependency on options
 
   return {
-    toast: (toastOptions) => {
-      toasterRef.current.toast(toastOptions)
-    },
-    dismiss: () => {
-      toasterRef.current.dismiss()
-    },
+    toast: (toastOptions) => toasterRef.current.toast(toastOptions),
+    dismiss: () => toasterRef.current.dismiss(),
+    clearAllToasts: () => toasterRef.current.clearAllToasts(),
   }
 }
 
-export default useToaster
+export const ToasterProvider = ({ children, options }) => {
+  const toaster = useToaster(options) // Provide the singleton instance
+
+  return <ToasterContext.Provider value={toaster}>{children}</ToasterContext.Provider>
+}
+
+export const useToasterContext = () => {
+  return useContext(ToasterContext)
+}

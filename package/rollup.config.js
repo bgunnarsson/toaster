@@ -3,21 +3,26 @@ import commonjs from '@rollup/plugin-commonjs'
 import { babel } from '@rollup/plugin-babel'
 import terser from '@rollup/plugin-terser'
 
-// Common plugins shared across both builds
+const isProduction = process.env.NODE_ENV === 'production'
+
 const commonPlugins = [
   resolve(),
-  commonjs(),
   babel({
     babelHelpers: 'bundled',
-    exclude: 'node_modules/**',
+    exclude: 'node_modules/**', // Exclude dependencies from being transpiled
+    presets: ['@babel/preset-react'], // Transpile JSX and React code
   }),
-  terser(), // Minifies the output
+  commonjs(), // Must come after Babel for CJS modules
+]
+
+const productionPlugins = [
+  terser(), // Minifies output in production
 ]
 
 export default [
   // Main Toaster build (CJS and ESM)
   {
-    input: 'src/index.mjs', // Your input file for the main Toaster class
+    input: 'src/index.mjs', // Core input
     output: [
       {
         file: 'dist/toaster.cjs.js', // CommonJS output
@@ -29,19 +34,20 @@ export default [
         format: 'esm',
       },
     ],
-    plugins: [...commonPlugins],
+    plugins: [...commonPlugins, ...(isProduction ? productionPlugins : [])],
   },
 
   // React wrapper build (ESM only)
   {
     input: 'src/react/index.js', // Input for the React wrapper
-    external: ['react', 'react-dom'], // Mark these as external dependencies
+    external: ['react', 'react-dom'], // Mark React and React-DOM as external
     output: {
       file: 'dist/react/index.js', // Output as dist/react/index.js (ESM)
       format: 'esm',
     },
     plugins: [
       ...commonPlugins, // Reuse common plugins
+      ...(isProduction ? productionPlugins : []),
     ],
   },
 ]
