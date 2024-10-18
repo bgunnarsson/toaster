@@ -1,8 +1,4 @@
-import { useState } from 'react'
-import './App.css'
-
-import useToaster from '@bgunnarssom/toaster/react'
-
+import useToaster from '@bgunnarsson/toaster/react'
 function App() {
   const { toast } = useToaster({
     position: 'bottom right',

@@ -20,8 +20,8 @@ const useToaster = (options) => {
   }, [options])
 
   return {
-    toast: (toastData) => {
-      toasterRef.current.toast(toastData)
+    toast: (toastOptions) => {
+      toasterRef.current.toast(toastOptions)
     },
     dismiss: () => {
       toasterRef.current.dismiss()

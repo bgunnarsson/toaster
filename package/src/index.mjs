@@ -59,19 +59,19 @@ export default function Toaster(options) {
 
   /**
    * Create and display a toast notification.
-   * @param {Object} toastData - The data for the toast.
-   * @param {string} toastData.content - The content of the toast (can be HTML or text).
-   * @param {boolean} [toastData.persist=false] - If true, the toast stays on the screen indefinitely.
-   * @param {number} [toastData.duration=3000] - The duration for how long the toast will be visible.
-   * @param {boolean} [toastData.pause=true] - Whether to pause the dismiss timer when the toast is hovered over.
-   * @param {boolean} [toastData.clickable=true] - Whether the toast is clickable.
+   * @param {Object} toastOptions - The data for the toast.
+   * @param {string} toastOptions.content - The content of the toast (can be HTML or text).
+   * @param {boolean} [toastOptions.persist=false] - If true, the toast stays on the screen indefinitely.
+   * @param {number} [toastOptions.duration=3000] - The duration for how long the toast will be visible.
+   * @param {boolean} [toastOptions.pause=true] - Whether to pause the dismiss timer when the toast is hovered over.
+   * @param {boolean} [toastOptions.clickable=true] - Whether the toast is clickable.
    */
-  this.toast = (toastData) => {
-    if (!toastData?.duration) {
-      toastData.duration = 3000
+  this.toast = (toastOptions) => {
+    if (!toastOptions?.duration) {
+      toastOptions.duration = 3000
     }
-    const isPaused = toastData?.pause ?? true
-    const isClickable = toastData?.clickable ?? true
+    const isPaused = toastOptions?.pause ?? true
+    const isClickable = toastOptions?.clickable ?? true
 
     // Create either a 'button' or a 'div' based on the clickable option
     const div = document.createElement(isClickable ? 'button' : 'div')
@@ -85,7 +85,7 @@ export default function Toaster(options) {
 
     let toastTimeout
 
-    div.insertAdjacentHTML('beforeend', toastData?.content)
+    div.insertAdjacentHTML('beforeend', toastOptions?.content)
 
     const offsetX = this?.options?.offset?.x
     div.style.transition = 'transform 0.2s ease-in'
@@ -106,19 +106,19 @@ export default function Toaster(options) {
 
     // Function to set the auto-close timeout
     const startTimeout = () => {
-      toastTimeout = setTimeout(() => closeToast(div, position.includes('left')), toastData?.duration)
+      toastTimeout = setTimeout(() => closeToast(div, position.includes('left')), toastOptions?.duration)
     }
 
     // Dispatch custom 'toaster:added' event when a toast is created
-    document.dispatchEvent(new CustomEvent('toaster:added', { detail: { toastData, element: div } }))
+    document.dispatchEvent(new CustomEvent('toaster:added', { detail: { toastOptions, element: div } }))
 
     // Start the auto-close timeout if persist is not true
-    if (!toastData.persist) {
+    if (!toastOptions.persist) {
       startTimeout()
     }
 
     // Pause the timeout on hover
-    if (isPaused && !toastData?.persist) {
+    if (isPaused && !toastOptions?.persist) {
       div.addEventListener('mouseenter', () => {
         clearTimeout(toastTimeout) // Clear the timeout to pause the closing
       })

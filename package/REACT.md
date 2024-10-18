@@ -1,4 +1,4 @@
-@bgunnarsson/toaster for React.
+# @bgunnarsson/toaster for React.
 
 ### `Options`
 
@@ -43,4 +43,3 @@ Manually dismiss a persisted toast
   Dismiss Toast
 </button>
 ```
-

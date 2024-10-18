@@ -1,5 +1,4 @@
 // Import the Toaster library
-// @ts-ignore
 import Toaster from '@bgunnarsson/toaster'
 
 // Initialize the Toaster

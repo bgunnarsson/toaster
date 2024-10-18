@@ -16,14 +16,16 @@
       "require": "./dist/toaster.cjs.js"
     },
     "./react": {
-      "import": "./dist/react/index.mjs"
+      "import": "./dist/react/index.js"
     }
   },
+  "types": "toaster.d.ts",
   "files": [
     "dist",
     "package.json",
     "README.md",
-    "toaster-logo.png"
+    "toaster-logo.png",
+    "toaster.d.ts"
   ],
   "keywords": [
     "toast",

@@ -10,7 +10,7 @@
     "dev:js": "pnpm build:p & pnpm --filter vanilla dev",
     "dev:ts": "pnpm build:p & pnpm --filter typescript dev",
     "dev:react": "pnpm build:p & pnpm --filter react dev",
-    "dist": "pnpm --filter @bgunnarsson/toaster dist",
+    "dist": "pnpm build:p & pnpm git & pnpm --filter @bgunnarsson/toaster dist",
     "git": "git add . && git commit -m update && git push origin main"
   },
   "pnpm": {
