@@ -8,6 +8,8 @@ The easiest toast library ever. Nothing you don't need, everything you **_do_** 
 
 ---
 
+![@bgunnarsson/toaster logo](toaster-logo.webp)
+
 **@bgunnarsson/Toaster**, the lightweight, dependency-free JavaScript library that gives you full control over your notifications—crispy on the outside, customizable on the inside. Whether you're looking to pop up simple text alerts or serve up rich HTML content, This package got your back, no unnecessary fluff, and no burnt toast.
 
 Designed with developers in mind, this package lets you take the wheel. No enforced styles, no bloated features, just a clean, flexible solution that slides perfectly into any project. Want to position your toast in the top right? Bottom left? Sprinkle it with custom classes and your own CSS? Go for it. This package gives you the freedom to create toast notifications that look and behave exactly how you want them to.
@@ -17,6 +19,7 @@ With sensible defaults for quick setup, this package is the perfect sidekick—w
 ---
 
 ## Features
+
 
 - **Minimal and customizable**: No forced styles; bring your own CSS for total control over the appearance.
 - **Flexible positioning**: Toasts can appear at `top left`, `top right`, `bottom left`, or `bottom right` of the screen, with additional support for customizable offsets.

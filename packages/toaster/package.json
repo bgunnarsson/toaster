@@ -13,7 +13,8 @@
   "files": [
     "dist",
     "package.json",
-    "README.md"
+    "README.md",
+    "toaster-logo.webp"
   ],
   "keywords": [
     "toast",
