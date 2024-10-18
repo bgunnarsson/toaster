@@ -10,6 +10,15 @@
     "build": "rollup -c",
     "dist": "pnpm publish"
   },
+  "exports": {
+    ".": {
+      "import": "./dist/toaster.esm.js",
+      "require": "./dist/toaster.cjs.js"
+    },
+    "./react": {
+      "import": "./dist/react/index.mjs"
+    }
+  },
   "files": [
     "dist",
     "package.json",

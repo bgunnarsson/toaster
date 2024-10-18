@@ -9,7 +9,7 @@ The easiest toast library ever. Nothing you don't need, everything you **_do_** 
 ---
 
 <p align="center">
-  <img src="toaster-logo.png" alt="Toaster Logo" width="570" height="570">
+  <img src="toaster-logo.png" alt="Toaster Logo" width="262" height="262">
 </p>
 
 
@@ -57,6 +57,8 @@ npm i @bgunnarsson/toaster
 ---
 
 ## Documentation
+
+Looking for React? [Click here](react/README.md)
 
 ### `Options`
 
