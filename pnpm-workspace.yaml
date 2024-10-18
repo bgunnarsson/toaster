@@ -1,5 +1,5 @@
 # The only field in this config file!
 packages:
   # Add paths to each package's folder, or glob patterns
-  - 'packages/*'
-  - 'tester'
+  - 'testers/*'
+  - 'package'

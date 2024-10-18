@@ -1,12 +1,16 @@
 {
   "name": "root",
-  "version": "0.0.1",
-  "description": "",
+  "version": "0.0.0",
+  "description": "Workspace root",
   "scripts": {
-    "build": "pnpm tb & pnpm --filter tester build",
-    "dev": "pnpm --filter tester dev",
+    "build:js": "pnpm build:p & pnpm --filter vanilla build",
+    "build:ts": "pnpm build:p & pnpm --filter typescript build",
+    "build:react": "pnpm build:p & pnpm --filter react build",
+    "build:p": "pnpm --filter @bgunnarsson/toaster build",
+    "dev:js": "pnpm build:p & pnpm --filter vanilla dev",
+    "dev:ts": "pnpm build:p & pnpm --filter typescript dev",
+    "dev:react": "pnpm build:p & pnpm --filter react dev",
     "dist": "pnpm --filter @bgunnarsson/toaster dist",
-    "tb": "pnpm --filter @bgunnarsson/toaster build",
     "git": "git add . && git commit -m update && git push origin main"
   },
   "pnpm": {
