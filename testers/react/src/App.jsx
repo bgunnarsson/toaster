@@ -1,14 +1,18 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
+import useToaster from '@bgunnarssom/toaster/react'
+
 function App() {
-  const [count, setCount] = useState(0)
+  const { toast } = useToaster({
+    position: 'bottom right',
+    offset: { x: 20, y: 20 },
+    customClass: 'my-toaster',
+  })
 
   return (
     <>
-      <button id="show-toast" on>
+      <button type="button" onClick={() => toast({ content: 'This is a text toast!' })}>
         Show Toast
       </button>
     </>
