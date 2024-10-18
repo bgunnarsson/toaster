@@ -48,6 +48,14 @@ npm i @bgunnarsson/toaster
 
 ---
 
+### `Sizes`
+
+| **Original**    | **gzip**    |
+|-----------------|-------------|
+| `3 kb`          | `348 B`     |
+
+---
+
 ## Documentation
 
 ### `Options`
@@ -157,7 +165,7 @@ toaster.toast({
 The library dispatches custom events when a toast is added or removed:
 
 * `toaster:added`Fired when a new toast is added.
-* `toaster::removed` Fired when a toast is removed from the DOM.
+* `toaster:removed` Fired when a toast is removed from the DOM.
 
 <details>
 <summary>Code</summary>
