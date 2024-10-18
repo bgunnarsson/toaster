@@ -9,10 +9,6 @@ importers:
   .: {}
 
   package:
-    dependencies:
-      rollup-plugin-gzip:
-        specifier: ^4.0.1
-        version: 4.0.1(rollup@4.24.0)
     devDependencies:
       '@rollup/plugin-babel':
         specifier: ^6.0.4
@@ -1385,12 +1381,6 @@ packages:
   resolve@2.0.0-next.5:
     resolution: {integrity: sha512-U7WjGVG9sH8tvjW5SmGbQuui75FiyjAX72HX15DwBBwF9dNiQZRQAg9nnPhYy+TUnE0+VcrttuvNI8oSxZcocA==}
     hasBin: true
-
-  rollup-plugin-gzip@4.0.1:
-    resolution: {integrity: sha512-HVukJ5vwTxgzKaNeKCNEqFRQ+/T/j/3zqoUaCN3VGTt8/Mn7Wu2nMCE8VBIDubjM5U+QGgiWs6fYysn63JZY1g==}
-    engines: {node: '>=10.0.0'}
-    peerDependencies:
-      rollup: '>=2.0.0'
 
   rollup@4.24.0:
     resolution: {integrity: sha512-DOmrlGSXNk1DM0ljiQA+i+o0rSLhtii1je5wgk60j49d1jHT5YYttBv1iWOnYSTG+fZZESUOSNiAl89SIet+Cg==}
@@ -2957,10 +2947,6 @@ snapshots:
       is-core-module: 2.15.1
       path-parse: 1.0.7
       supports-preserve-symlinks-flag: 1.0.0
-
-  rollup-plugin-gzip@4.0.1(rollup@4.24.0):
-    dependencies:
-      rollup: 4.24.0
 
   rollup@4.24.0:
     dependencies:

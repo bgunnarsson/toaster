@@ -38,8 +38,5 @@
     "@rollup/plugin-node-resolve": "^15.3.0",
     "@rollup/plugin-terser": "^0.4.4",
     "rollup": "^4.24.0"
-  },
-  "dependencies": {
-    "rollup-plugin-gzip": "^4.0.1"
   }
 }

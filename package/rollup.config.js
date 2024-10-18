@@ -2,7 +2,6 @@ import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import { babel } from '@rollup/plugin-babel'
 import terser from '@rollup/plugin-terser'
-import gzipPlugin from 'rollup-plugin-gzip'
 
 // Common plugins shared across both builds
 const commonPlugins = [
@@ -14,14 +13,6 @@ const commonPlugins = [
   }),
   terser(), // Minifies the output
 ]
-
-// Gzip configuration
-const gzipConfig = gzipPlugin({
-  gzipOptions: {
-    level: 9, // Maximum compression
-  },
-  filter: /\.js$/, // Only compress JS files
-})
 
 export default [
   // Main Toaster build (CJS and ESM)
@@ -38,22 +29,19 @@ export default [
         format: 'esm',
       },
     ],
-    plugins: [
-      ...commonPlugins,
-      gzipConfig, // Apply Gzip compression for the main Toaster build
-    ],
+    plugins: [...commonPlugins],
   },
 
   // React wrapper build (ESM only)
   {
     input: 'src/react/index.js', // Input for the React wrapper
+    external: ['react', 'react-dom'], // Mark these as external dependencies
     output: {
       file: 'dist/react/index.js', // Output as dist/react/index.js (ESM)
       format: 'esm',
     },
     plugins: [
       ...commonPlugins, // Reuse common plugins
-      gzipConfig, // Apply Gzip compression for the React wrapper
     ],
   },
 ]
