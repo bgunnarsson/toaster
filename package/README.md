@@ -58,7 +58,7 @@ npm i @bgunnarsson/toaster
 
 ## Documentation
 
-Looking for React? [Click here](REACT.md)
+Looking for React? [Click here](README.react.md)
 
 ### `Options`
 

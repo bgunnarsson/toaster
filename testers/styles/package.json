@@ -1,0 +1,11 @@
+{
+  "name": "styles",
+  "version": "1.0.0",
+  "main": "dist/styles.css",
+  "scripts": {
+    "build": "sass styles.scss dist/styles.css --no-source-map"
+  },
+  "devDependencies": {
+    "sass": "^1.64.0"
+  }
+}

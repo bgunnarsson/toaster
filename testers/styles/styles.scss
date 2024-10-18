@@ -1,0 +1,57 @@
+@use 'vars';
+@use 'reset';
+@use 'global';
+
+
+body {
+  background: vars.$background;
+  color: vars.$text;
+}
+
+.button {
+  position: relative;
+  display: inline-flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 58px;
+
+  // transform / transition
+  transform: translateY(0);
+  transition: color .4s ease-in-out, background-color .4s ease-in-out, border-color .4s ease-in-out;
+
+  // typography
+  font-size: 16px;
+  line-height: 26px;
+  // alignment
+  vertical-align: middle;
+
+  // border
+  border-style: solid;
+  border-width: 2px;
+  border-color: transparent;
+
+  background: #fff;
+  color: #000;
+
+  // ! this helps with getting the correct event.target in javascript clicks.
+  > * {
+    pointer-events: none;
+  }
+
+  svg,
+  svg path {
+    transition: fill .4s ease-in-out;
+  }
+
+  &:not([disabled]):active {
+    transform: translateY(1px);
+  }
+}
+
+.my-toaster__toast {
+  color: #000;
+  background: #fff;
+}

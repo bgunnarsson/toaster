@@ -1,4 +1,7 @@
 import useToaster from '@bgunnarsson/toaster/react'
+
+import 'styles'
+
 function App() {
   const { toast } = useToaster({
     position: 'bottom right',
@@ -8,7 +11,7 @@ function App() {
 
   return (
     <>
-      <button type="button" onClick={() => toast({ content: 'This is a text toast!' })}>
+      <button type="button" className="button" onClick={() => toast({ content: 'This is a text toast!' })}>
         Show Toast
       </button>
     </>

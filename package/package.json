@@ -13,13 +13,14 @@
   "exports": {
     ".": {
       "import": "./dist/toaster.esm.js",
-      "require": "./dist/toaster.cjs.js"
+      "require": "./dist/toaster.cjs.js",
+      "types": "./toaster.d.ts"
     },
     "./react": {
       "import": "./dist/react/index.js"
     }
   },
-  "types": "toaster.d.ts",
+  "types": "./toaster.d.ts",
   "files": [
     "dist",
     "package.json",

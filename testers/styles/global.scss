@@ -1,0 +1,73 @@
+@use 'vars';
+
+// All of the html/body styles are required so the styles will behave as expected.
+html,
+body {
+  position: relative;
+  font-size: 100%;
+  height: 100%;
+}
+
+html {
+  min-height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  font-family: "Arial";
+  font-size: 100%;
+  line-height: 1;
+  text-align: left;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  text-size-adjust: none;
+
+  * {
+    box-sizing: border-box;
+
+    &:focus,
+    &::before,
+    &::after {
+      box-sizing: border-box;
+    }
+  }
+}
+
+a,
+button {
+  cursor: pointer;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+a {
+  color: vars.$primary;
+  transition: color .4s ease-in-out;
+
+  &:hover {
+    color: vars.$primary;
+  }
+}
+
+strong {
+  font-weight: weight(bold);
+}
+
+.main {
+  flex: 1;
+}
+
+// focus visible styles (see focus-visible npm package)
+*:focus:not(:focus-visible) {
+  outline: none;
+}
