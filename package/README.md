@@ -9,9 +9,11 @@ The easiest toast library ever. Nothing you don't need, everything you **_do_** 
 ---
 
 <p align="center">
-  <img src="toaster-logo.png" alt="Toaster Logo" width="262" height="262">
+  <img src="toaster-logo.png" alt="Toaster Logo" width="128" height="128" />
 </p>
 
+
+I was fed up with notification libraries that were either too complex or simply didn't do the job well. So, I set out to create this package—to make something simple, effective, and easy to use.
 
 **@bgunnarsson/Toaster**, the lightweight, dependency-free JavaScript library that gives you full control over your notifications—crispy on the outside, customizable on the inside. Whether you're looking to pop up simple text alerts or serve up rich HTML content, This package got your back, no unnecessary fluff, and no burnt toast.
 
@@ -87,7 +89,7 @@ const toaster = new Toaster({ duration: 5000 });
 
 toaster.toast({
   content: '<p>Welcome to Toaster!</p>'
-});
+})
 ```
 
 #### `Initialization`
@@ -101,13 +103,13 @@ const toaster = new Toaster({
   position: 'bottom right',  // Position the toasts at the bottom-right corner.
   offset: { x: 20, y: 20 },  // Offset the toast from the bottom-right by 20px.
   customClass: 'my-toaster', // Add a custom class to the toasts.
-});
+})
 ```
 
 </details>
 
-
 #### `.toast()`
+
 | **Option**      | **Type**  | **Default**      |
 |-----------------|-----------|------------------|
 | `content`       | `string`  |                  |
@@ -127,8 +129,8 @@ Use the toast() method to create and display a toast notification.
 toaster.toast({
   content: '<p>Hello, this is a toast!</p>',  // Display HTML content.
   duration: 3000,  // Auto-dismiss the toast after 3 seconds.
-  clickable: true, // Make the toast clickable to dismiss.
-});
+  clickable: true, // Disable the clickability.
+})
 ```
 
 </details>
@@ -157,7 +159,7 @@ Toasts can be made persistent by setting the persist option to true. Persistent 
 toaster.toast({
   content: 'Persistent toast message!',
   persist: true, // Toast will stay until dismissed manually.
-});
+})
 ```
 
 </details>
@@ -175,11 +177,11 @@ The library dispatches custom events when a toast is added or removed:
 ```javascript
 document.addEventListener('toaster:added', (event) => {
   console.log('Toast added:', event.detail);
-});
+})
 
 document.addEventListener('toaster:removed', (event) => {
   console.log('Toast removed:', event.detail);
-});
+})
 ```
 
 </details>
@@ -194,7 +196,7 @@ At the time of writing `(18.10.2024)`, this package has been tested for use in:
 * React - `@bgunnarsson/toaster/react`
 * Astro
 * Svelte
-* Vue
+* Vue 3
 
 Upcoming tests:
 
