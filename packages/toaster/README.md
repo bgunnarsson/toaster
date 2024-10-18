@@ -8,7 +8,10 @@ The easiest toast library ever. Nothing you don't need, everything you **_do_** 
 
 ---
 
-![@bgunnarsson/toaster logo](toaster-logo.jpg)
+<p align="center">
+  <img src="toaster-logo.png" alt="Toaster Logo" width="128" height="128">
+</p>
+
 
 **@bgunnarsson/Toaster**, the lightweight, dependency-free JavaScript library that gives you full control over your notifications—crispy on the outside, customizable on the inside. Whether you're looking to pop up simple text alerts or serve up rich HTML content, This package got your back, no unnecessary fluff, and no burnt toast.
 
