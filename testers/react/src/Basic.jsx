@@ -5,11 +5,13 @@ import Navigation from './Navigation'
 function Basic() {
   const { toast } = useToasterContext()
 
-  const renderToastContent = (type) => `
-      <div class="my-toaster__content my-toaster__toast-${type}">
+  const renderToastContent = (type) => {
+    return `
+      <div class="my-toaster__content my-toaster__toast--${type}">
         <p>Toaster content</p>
       </div>
     `
+  }
 
   const toastOptions = {
     persist: false,
