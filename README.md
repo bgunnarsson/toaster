@@ -1,6 +1,6 @@
 # @bgunnarsson/toaster
 
-### `Toaster = Ristavél in Icelandic.`
+### `Toaster = Brauðrist in Icelandic.`
 
 ---
 
