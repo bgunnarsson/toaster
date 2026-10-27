@@ -20,25 +20,11 @@
     "dist": "pnpm build:p & pnpm git & pnpm --filter @bgunnarsson/toaster dist",
     "git": "git add . && git commit -m update && git push origin main"
   },
-  "pnpm": {
-    "peerDependencyRules": {
-      "ignoreMissing": [
-        "@babel/core",
-        "@babel/plugin-transform-react-jsx",
-        "vite",
-        "react",
-        "react-dom",
-        "@types/react",
-        "tslib",
-        "quill-delta",
-        "rxjs"
-      ],
-      "allowAny": [
-        "rustikus"
-      ]
-    }
-  },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "engines": {
+    "node": ">=24"
+  },
+  "packageManager": "pnpm@11.25.0"
 }

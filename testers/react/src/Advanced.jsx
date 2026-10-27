@@ -1,4 +1,3 @@
-import React from 'react'
 import { useToasterContext } from '@bgunnarsson/toaster/react'
 import Navigation from './Navigation'
 

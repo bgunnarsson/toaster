@@ -10,7 +10,7 @@ const commonPlugins = [
   babel({
     babelHelpers: 'bundled',
     exclude: 'node_modules/**', // Exclude dependencies from being transpiled
-    presets: ['@babel/preset-react'], // Transpile JSX and React code
+    presets: [['@babel/preset-react', { runtime: 'classic' }]], // Transpile JSX and React code
   }),
   commonjs(), // Must come after Babel for CJS modules
 ]

@@ -10,8 +10,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.16.6",
     "@bgunnarsson/toaster": "workspace:*",
+    "astro": "^7.4.2",
     "styles": "workspace:*"
   }
 }

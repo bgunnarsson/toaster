@@ -1,5 +1,20 @@
-# The only field in this config file!
+# Add paths to each package's folder, or glob patterns
 packages:
-  # Add paths to each package's folder, or glob patterns
   - 'testers/*'
   - 'package'
+allowBuilds:
+  esbuild: true
+  sharp: true
+peerDependencyRules:
+  ignoreMissing:
+    - '@babel/core'
+    - '@babel/plugin-transform-react-jsx'
+    - vite
+    - react
+    - react-dom
+    - '@types/react'
+    - tslib
+    - quill-delta
+    - rxjs
+  allowAny:
+    - rustikus
