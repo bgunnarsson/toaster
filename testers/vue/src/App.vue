@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import Toaster from '@bgunnarsson/toaster';
+import Toaster from '@bgunnarsson/toaster'
 
 export default {
   name: 'App',
@@ -18,7 +18,7 @@ export default {
     return {
       // Initialize the Toaster instance in the component's data
       toaster: null,
-    };
+    }
   },
 
   mounted() {
@@ -27,7 +27,7 @@ export default {
       position: 'bottom right',
       offset: { x: 20, y: 20 },
       customClass: 'my-toaster',
-    });
+    })
   },
 
   methods: {
@@ -36,13 +36,13 @@ export default {
         <div class="my-toaster__content my-toaster__toast--${type}">
           <p>${type.charAt(0).toUpperCase() + type.slice(1)} Toast</p>
         </div>
-      `;
+      `
 
       this.toaster.toast({
         content,
         duration: 3000, // 3 seconds
-      });
+      })
     },
   },
-};
+}
 </script>

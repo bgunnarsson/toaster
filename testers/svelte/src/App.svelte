@@ -1,26 +1,26 @@
 <script>
-  import Toaster from '@bgunnarsson/toaster';
+import Toaster from '@bgunnarsson/toaster'
 
-  // Initialize the Toaster
-  const toaster = new Toaster({
-    position: 'bottom right',
-    offset: { x: 20, y: 20 },
-    customClass: 'my-toaster',
-  });
+// Initialize the Toaster
+const toaster = new Toaster({
+  position: 'bottom right',
+  offset: { x: 20, y: 20 },
+  customClass: 'my-toaster',
+})
 
-  // Function to show the toast with the respective type
-  const showToast = (type) => {
-    const content = `
+// Function to show the toast with the respective type
+const showToast = (type) => {
+  const content = `
       <div class="my-toaster__content my-toaster__toast--${type}">
         <p>${type.charAt(0).toUpperCase() + type.slice(1)} Toast</p>
       </div>
-    `;
+    `
 
-    toaster.toast({
-      content,
-      duration: 3000, // 3 seconds
-    });
-  };
+  toaster.toast({
+    content,
+    duration: 3000, // 3 seconds
+  })
+}
 </script>
 
 

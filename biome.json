@@ -1,13 +1,48 @@
 {
-  "organizeImports": {
-    "enabled": false
+  "$schema": "https://biomejs.dev/schemas/2.3.9/schema.json",
+  "root": true,
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": "off"
+      }
+    }
+  },
+  "files": {
+    "includes": [
+      "**",
+      "!**/Vettvangur.Site/**",
+      "!**/Vettvangur.Core/**",
+      "!**/node_modules/**",
+      "!**/dist/**",
+      "!**/.astro/**",
+      "!**/.vscode/**",
+      "!**/docs/**",
+      "!**/src/scripts/libs/**",
+      "!**/src/__tests__/**",
+      "!**/src/tests/**",
+      "!**/tests/fixtures/**",
+      "!**/src/assets/**",
+      "!**/tsconfig.json",
+      "!biome.json",
+      "!**/biome.json",
+      "!**/esbuild.config.mjs",
+      "!**/README.md",
+      "!**/pnpm-lock.yaml",
+      "!**/localhost-key.pem",
+      "!**/localhost.pem",
+      "!**/.gitignore",
+      "!**/readme",
+      "!**/src/scripts/utility/validation/**",
+      "!**/public/**",
+      "!**/src/styles/**"
+    ]
   },
   "linter": {
     "enabled": true,
     "rules": {
       "a11y": {
         "noAutofocus": "error",
-        "noBlankTarget": "error",
         "noPositiveTabindex": "error",
         "useAltText": "error",
         "useAnchorContent": "error",
@@ -17,52 +52,56 @@
         "useValidAnchor": "error"
       },
       "complexity": {
+        "noArguments": "error",
         "noExtraBooleanCast": "error",
-        "noMultipleSpacesInRegularExpressionLiterals": "error",
+        "noAdjacentSpacesInRegex": "error",
         "noUselessFragments": "error",
         "useFlatMap": "warn",
         "useOptionalChain": "off",
         "useSimplifiedLogicExpression": "off",
-        "noForEach": "off"
+        "noForEach": "off",
+        "useWhile": "warn",
+        "useArrowFunction": "off",
+        "noUselessTernary": "off",
+        "noUselessEscapeInRegex": "off"
       },
       "correctness": {
         "noChildrenProp": "error",
         "noConstAssign": "error",
         "noEmptyPattern": "off",
-        "noNewSymbol": "off",
         "noRenderReturnValue": "error",
         "noUndeclaredVariables": "off",
-        "noUnnecessaryContinue": "error",
         "noUnreachable": "error",
         "noUnusedVariables": "error",
         "noVoidElementsWithChildren": "error",
-        "useValidForDirection": "error"
+        "useValidForDirection": "error",
+        "useValidTypeof": "error",
+        "useParseIntRadix": "off"
       },
       "performance": {
         "noDelete": "error"
       },
       "security": {
+        "noBlankTarget": "error",
         "noDangerouslySetInnerHtml": "off",
         "noDangerouslySetInnerHtmlWithChildren": "off"
       },
       "style": {
-        "noArguments": "error",
         "noImplicitBoolean": "off",
         "noNegationElse": "off",
         "noShoutyConstants": "off",
         "noUnusedTemplateLiteral": "error",
         "useBlockStatements": "error",
-        "useFragmentSyntax": "error",
+        "useFragmentSyntax": "off",
         "useSelfClosingElements": "error",
-        "useShorthandArrayType": "off",
-        "useSingleCaseStatement": "off",
         "useSingleVarDeclarator": "error",
         "useTemplate": "warn",
-        "useWhile": "warn",
-        "noParameterAssign": "off"
+        "noParameterAssign": "off",
+        "noNonNullAssertion": "off",
+        "useImportType": "off"
       },
       "suspicious": {
-        "noArrayIndexKey": "error",
+        "noArrayIndexKey": "off",
         "noAsyncPromiseExecutor": "error",
         "noCatchAssign": "error",
         "noCommentText": "error",
@@ -71,76 +110,56 @@
         "noDoubleEquals": "error",
         "noDuplicateParameters": "error",
         "noExplicitAny": "off",
-        "noMisleadingCharacterClass": "warn",
         "noFunctionAssign": "error",
         "noImportAssign": "error",
         "noLabelVar": "error",
         "noShadowRestrictedNames": "error",
         "noSparseArray": "error",
         "noUnsafeNegation": "error",
-        "useValidTypeof": "error",
-        "noRedeclare": "off"
+        "noRedeclare": "off",
+        "noImplicitAnyLet": "off",
+        "noTsIgnore": "off",
+        "useIterableCallbackReturn": "off",
+        "useBiomeIgnoreFolder": "off",
+        "noAssignInExpressions": "off"
       }
-    },
-    "ignore": [
-      "**/Vettvangur.Site",
-      "**/Vettvangur.Core",
-      "**/node_modules",
-      "**/docs",
-      "**/src/scripts/libs/**/*",
-      "**/src/scripts/libs",
-      "**/src/__tests__",
-      "**/src/tests",
-      "**/src/assets",
-      "**/.vscode",
-      "**/tsconfig.json",
-      "rome.json",
-      "**/rome.json",
-      "**/esbuild.config.mjs",
-      "**/README.md",
-      "**/pnpm-lock.yaml",
-      "**/localhost-key.pem",
-      "**/localhost.pem",
-      "**/.gitignore",
-      "**/readme",
-      "**/src/scripts/utility/validation/**/*"
-    ]
+    }
   },
   "formatter": {
     "enabled": true,
     "formatWithErrors": true,
     "indentStyle": "space",
     "indentWidth": 2,
-    "lineWidth": 120,
-    "ignore": [
-      "**/Vettvangur.Site",
-      "**/Vettvangur.Core",
-      "**/node_modules",
-      "**/docs",
-      "**/src/scripts/libs/**/*",
-      "**/src/scripts/libs",
-      "**/src/__tests__",
-      "**/src/tests",
-      "**/src/assets",
-      "**/.vscode",
-      "**/tsconfig.json",
-      "rome.json",
-      "**/rome.json",
-      "**/esbuild.config.mjs",
-      "**/README.md",
-      "**/pnpm-lock.yaml",
-      "**/localhost-key.pem",
-      "**/localhost.pem",
-      "**/.gitignore",
-      "**/readme",
-      "**/src/scripts/utility/validation/**/*"
-    ]
+    "lineWidth": 120
   },
   "javascript": {
     "formatter": {
       "semicolons": "asNeeded",
-      "trailingComma": "es5",
+      "trailingCommas": "es5",
       "quoteStyle": "single"
     }
-  }
+  },
+  "overrides": [
+    {
+      "includes": ["package/src/**"],
+      "javascript": {
+        "jsxRuntime": "reactClassic"
+      }
+    },
+    {
+      "includes": ["**/*.svelte", "**/*.astro", "**/*.vue"],
+      "linter": {
+        "rules": {
+          "style": {
+            "useConst": "off",
+            "useImportType": "off"
+          },
+          "correctness": {
+            "noUnusedVariables": "off",
+            "noUnusedImports": "off"
+          }
+        }
+      }
+    }
+  ]
 }
