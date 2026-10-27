@@ -1,6 +1,6 @@
 {
   "name": "@bgunnarsson/toaster",
-  "version": "0.0.11",
+  "version": "1.0.0",
   "description": "Toast message javascript library",
   "access": "private",
   "type": "module",
