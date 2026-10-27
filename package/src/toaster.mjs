@@ -76,6 +76,24 @@ export default class Toaster {
     /** @type {HTMLElement[]} Toasts on screen, oldest first. A closing toast leaves it straight away. */
     const toasts = []
 
+    /** @type {Map<HTMLElement, { start: () => void, stop: () => void }>} Timers of the toasts that pause on hover */
+    const timers = new Map()
+    let isHovered = false
+
+    // Hovering the toaster pauses every toast, and leaving it starts them all again
+    rootDiv.addEventListener('mouseenter', () => {
+      isHovered = true
+      for (const timer of timers.values()) {
+        timer.stop()
+      }
+    })
+    rootDiv.addEventListener('mouseleave', () => {
+      isHovered = false
+      for (const timer of timers.values()) {
+        timer.start()
+      }
+    })
+
     // Lay the toasts out as a deck: the newest in front, each older one smaller and peeking out behind it
     const restack = () => {
       if (!toasterOptions.stack) {
@@ -97,7 +115,8 @@ export default class Toaster {
         element.style.translate = `0 ${(isTop ? 1 : -1) * step * STACK_PEEK}px`
         element.style.scale = `${1 - step * STACK_SCALE}`
         element.style.opacity = depth < STACK_VISIBLE ? '' : '0'
-        element.style.pointerEvents = depth < STACK_VISIBLE ? '' : 'none'
+        // Only the front toast takes the mouse, so the ones behind it cannot be clicked away
+        element.style.pointerEvents = depth ? 'none' : ''
 
         // A toast behind the front one takes its height, so only the strip peeking out of the deck shows
         if (depth) {
@@ -115,6 +134,7 @@ export default class Toaster {
         return
       }
       toasts.splice(index, 1)
+      timers.delete(element)
       restack()
 
       const offsetX = toasterOptions.offset.x
@@ -188,14 +208,13 @@ export default class Toaster {
       document.dispatchEvent(new CustomEvent('toaster:added', { detail: { toastOptions, element: div } }))
 
       if (!toastOptions.persist) {
-        startTimeout()
-      }
-
-      if (isPaused && !toastOptions?.persist) {
-        div.addEventListener('mouseenter', () => {
-          clearTimeout(toastTimeout) // Pause timeout on hover
-        })
-        div.addEventListener('mouseleave', startTimeout) // Resume timeout on hover exit
+        if (isPaused) {
+          timers.set(div, { start: startTimeout, stop: () => clearTimeout(toastTimeout) })
+        }
+        // A toast that pauses on hover waits while the toaster is hovered
+        if (!isPaused || !isHovered) {
+          startTimeout()
+        }
       }
 
       if (isClickable) {
@@ -217,6 +236,7 @@ export default class Toaster {
     function clearAllToasts() {
       rootDiv.innerHTML = '' // Clear all toasts from the DOM
       toasts.length = 0
+      timers.clear()
     }
 
     /** @type {HTMLElement | undefined} */
