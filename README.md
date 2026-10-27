@@ -71,6 +71,9 @@ Looking for React? [Click here](README.react.md)
 | `position`      | `string`  | `bottom right`   |
 | `offset`        | `object`  | `{ x: 0, y: 0 }` |
 | `customClass`   | `string`  |                  |
+| `stack`         | `boolean` | `true`           |
+
+With `stack` on, toasts pile up as a deck: the newest in front, and up to two older ones peeking out behind it, above it for `bottom` positions and below it for `top` positions. Set `stack: false` to list them one after another instead.
 
 ### `Importing`
 This package is ESM only and ships its own TypeScript declarations.
