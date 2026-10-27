@@ -7,8 +7,6 @@ allowBuilds:
   sharp: true
 peerDependencyRules:
   ignoreMissing:
-    - '@babel/core'
-    - '@babel/plugin-transform-react-jsx'
     - vite
     - react
     - react-dom

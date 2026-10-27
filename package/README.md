@@ -73,13 +73,10 @@ Looking for React? [Click here](README.react.md)
 | `customClass`   | `string`  |                  |
 
 ### `Importing`
-Since this package includes both `CJS` and `ESM` files it will work with both `require` and `import`.
+This package is ESM only and ships its own TypeScript declarations.
 
 ```javascript
-import Toaster from '@bgunnarsson/toaster"
-```
-```javascript
-const Toaster = require('@bgunnarsson/toaster')
+import Toaster from '@bgunnarsson/toaster'
 ```
 
 ### `Basic Usage`

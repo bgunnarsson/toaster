@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
+    "noImplicitAny": false,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "outDir": "./dist/types",
+    "moduleResolution": "Bundler",
+    "target": "ESNext",
+    "module": "ESNext",
+    "allowSyntheticDefaultImports": true
+  },
+  "include": [
+    "./index.mjs",
+    "./react.mjs"
+  ],
+  "exclude": [
+    "./dist"
+  ]
+}

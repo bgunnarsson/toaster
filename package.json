@@ -10,7 +10,7 @@
     "build:svelte": "pnpm build:p & pnpm build:styles & pnpm --filter svelte build",
     "build:vue": "pnpm build:p & pnpm build:styles & pnpm --filter vue build",
     "build:styles": "pnpm --filter styles run build",
-    "build:p": "pnpm --filter @bgunnarsson/toaster build",
+    "build:p": "pnpm --filter @bgunnarsson/toaster bundle",
     "dev:js": "pnpm build:styles & pnpm build:p & pnpm --filter vanilla dev",
     "dev:ts": "pnpm build:styles & pnpm build:p & pnpm --filter typescript dev",
     "dev:react": "pnpm build:styles & pnpm build:p & pnpm --filter react dev",

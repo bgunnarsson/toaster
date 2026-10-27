@@ -141,12 +141,6 @@
   },
   "overrides": [
     {
-      "includes": ["package/src/**"],
-      "javascript": {
-        "jsxRuntime": "reactClassic"
-      }
-    },
-    {
       "includes": ["**/*.svelte", "**/*.astro", "**/*.vue"],
       "linter": {
         "rules": {
